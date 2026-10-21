@@ -4,8 +4,8 @@ export const SITE = {
   tagline: 'Plastic Regrinds & Recycled Granules',
   // Leadership shown on the About page (photo slots L1, L2). Leave name/role blank until confirmed.
   team: [
-    { slot: 'L1', name: 'Neetu Tripathi', role: 'Partner', img: '/images/site/team-1.jpg' },
-    { slot: 'L2', name: 'Shweta Tripathi', role: 'Partner', img: '/images/site/team-2.jpg' },
+    { slot: 'L1', name: 'Neetu Tripathi', role: 'Managing Director', img: '/images/site/team-1.jpg' },
+    { slot: 'L2', name: 'Shweta Tripathi', role: 'Director Operations', img: '/images/site/team-2.jpg' },
   ],
   phone: '+91 91189 85119',
   tel: '+919118985119',
