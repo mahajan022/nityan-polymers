@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import Media from '../../components/Media.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Swatches from '../../components/Swatches.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import { PRODUCTS, type Product } from '../../data/products';
+import { waLink, quoteLink } from '../../data/site';
+import { hasPublicFile } from '../../utils/media';
+
+export function getStaticPaths() {
+  return PRODUCTS.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+
+const { product: p } = Astro.props as { product: Product };
+const waText = `Hello Nityan Polymers, I would like a quote for ${p.name}.`;
+const related = PRODUCTS.filter((x) => x.slug !== p.slug).slice(0, 3);
+const index = PRODUCTS.findIndex((x) => x.slug === p.slug) + 1;
+// Gallery photos (slots b, c, d) only show once the file has been added.
+const extras = ['b', 'c', 'd']
+  .map((letter, i) => ({ letter, n: i + 2, img: `/images/products/${p.slug}-${i + 2}.jpg` }))
+  .filter((x) => hasPublicFile(x.img));
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  description: p.description[0],
+  category: `Recycled ${p.polymer} granules`,
+  brand: { '@type': 'Brand', name: 'Nityan Polymers' },
+  image: new URL(`/images/products/${p.slug}.jpg`, Astro.site).toString(),
+};
+---
+<BaseLayout
+  title={`${p.name} — Recycled ${p.polymer}`}
+  description={`${p.description[0]} Request a quote or WhatsApp Nityan Polymers.`}
+  mobileBar
+  waText={waText}
+  quoteHref={quoteLink(p.slug)}
+  image={`/images/products/${p.slug}.jpg`}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(productSchema)} />
+
+  <PageHero title={p.name} crumbs={[{ href: '/products', label: 'Products' }, { label: p.name }]}>
+    <div class="page-hero__tags">
+      <span>{p.polymer}</span><span>{p.process}</span><span>{p.form}</span>
+    </div>
+  </PageHero>
+
+  <section class="pd">
+    <div class="container product__grid">
+      <div class="product__media reveal">
+        <Media slot={p.slot} label={`${p.name} — main photo`} img={`/images/products/${p.slug}.jpg`} alt={p.name} eager />
+        {extras.length > 0 && (
+          <div class="product__thumbs">
+            {extras.map((x) => (
+              <Media slot={`${p.slot}${x.letter}`} label="Extra photo" img={x.img} alt={`${p.name} — photo ${x.n}`} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div class="reveal" data-delay="1">
+        <div class="product__num">0{index} · {p.polymer}</div>
+        <h2>{p.name}</h2>
+        {p.description.map((d, i) => <p class={i === 0 ? 'lead' : undefined}>{d}</p>)}
+
+        {p.note && (
+          <div class="note"><Icon name="info" /><span><strong>Pipe-use note:</strong> {p.note}</span></div>
+        )}
+
+        <dl class="spec">
+          <div class="k">Polymer</div><div class="v">{p.polymer} (recycled)</div>
+          <div class="k">Colour</div>
+          <div class="v">
+            <Swatches colours={p.colours} />
+            {p.colours.length > 1 && (
+              <div class="colour-pick">
+                {p.colours.map((c) => (
+                  <a href={quoteLink(p.slug, c.name)}><span class={`sw sw--${c.key}`}></span>Quote for {c.name}</a>
+                ))}
+              </div>
+            )}
+          </div>
+          <div class="k">Form</div><div class="v">{p.form}</div>
+          <div class="k">Process</div><div class="v">{p.process}</div>
+          <div class="k">Possible applications</div>
+          <div class="v"><div class="tags">{p.applications.map((a) => <span class="tag">{a}</span>)}</div></div>
+          <div class="k">Price &amp; terms</div>
+          <div class="v">On enquiry — specifications, MOQ, packaging and samples confirmed with each offer</div>
+        </dl>
+
+        <div class="btn-row">
+          <a class="btn btn--primary" href={quoteLink(p.slug)}><Icon name="quote" /> Request a Quote</a>
+          <a class="btn btn--wa" href={waLink(waText)} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
+        </div>
+
+        <div class="pd__ask">
+          <h3>For an accurate quotation, share:</h3>
+          <ul>
+            <li>Your product and processing method</li>
+            <li>Required colour and quality requirements</li>
+            <li>Quantity in kg or MT (one-time or monthly)</li>
+            <li>Delivery city / PIN code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Disclaimer />
+
+  <section class="section">
+    <div class="container">
+      <div class="cat-head reveal">
+        <div class="section-head">
+          <span class="eyebrow">Other products</span>
+          <h2>You may also need</h2>
+        </div>
+        <a class="btn btn--outline" href="/products">All products <Icon name="arrow" /></a>
+      </div>
+      <div class="grid grid--3">
+        {related.map((r, i) => <ProductCard product={r} delay={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand quoteHref={quoteLink(p.slug)} waText={waText} title={`Need ${p.name}?`} />
+</BaseLayout>

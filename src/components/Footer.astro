@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+import { SITE, waLink } from '../data/site';
+import { PRODUCTS } from '../data/products';
+
+interface Props { mobileBar?: boolean; waText?: string; quoteHref?: string }
+const { mobileBar = false, waText, quoteHref = '/contact#enquiry' } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="/images/logo/logo-white.png" alt="Nityan Polymers" width="195" height="48" loading="lazy" />
+        <p>Plastic regrinds &amp; recycled granules for Indian manufacturers. Share your application, colour and quantity to discuss your requirement.</p>
+        <div class="footer__polys">{SITE.polymers.map((p) => <span>{p}</span>)}</div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/privacy">Privacy Notice</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          {PRODUCTS.map((p) => <li><a href={`/products/${p.slug}`}>{p.name}</a></li>)}
+          <li><a href="/products/plastic-regrinds">Plastic Regrinds</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li class="fc"><Icon name="phone" /><a href={`tel:${SITE.tel}`}>{SITE.phone}</a></li>
+          <li class="fc"><Icon name="wa" /><a href={waLink()} target="_blank" rel="noopener">WhatsApp us</a></li>
+          <li class="fc"><Icon name="mail" /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li class="fc"><Icon name="pin" /><address>{SITE.address.map((l) => <>{l}<br /></>)}</address></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; {year} Nityan Polymers. All rights reserved.</span>
+      <span>Applications are indicative · Food-contact suitability is not claimed</span>
+    </div>
+  </div>
+  <div class="footer__stripe"></div>
+</footer>
+
+{mobileBar && (
+  <div class="mbar">
+    <a class="btn btn--primary" href={quoteHref}><Icon name="quote" /> Request a Quote</a>
+    <a class="btn btn--wa" href={waLink(waText)} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp</a>
+  </div>
+)}
+
+<a class="wa-float" href={waLink(waText)} target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><Icon name="wa" mono /></a>

@@ -42,4 +42,3 @@ pre-filled, and "Send on WhatsApp" sends the same details to +91 91189 85119.
 - Update "is being established" on the About page once operating.
 - Test the enquiry form and WhatsApp buttons; review the privacy notice.
 - Don't add melt-flow values, purity, recycled-content % or certifications without an approved data sheet.
-# nityan-polumers

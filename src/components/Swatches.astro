@@ -1,0 +1,15 @@
+---
+import type { Colour } from '../data/products';
+interface Props { colours: Colour[] }
+const { colours } = Astro.props;
+---
+<span class="swatches">
+  {colours.length ? (
+    <>
+      {colours.map((c) => <span class={`sw sw--${c.key}`} title={c.name}></span>)}
+      {colours.map((c) => c.name).join(' / ')}
+    </>
+  ) : (
+    <><span class="sw sw--mixed"></span> Confirmed with offer</>
+  )}
+</span>

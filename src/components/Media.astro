@@ -1,0 +1,28 @@
+---
+/**
+ * Photo / video slot. Until the file exists in /public, a labelled placeholder is shown.
+ * Drop a file at the given path (see MEDIA-GUIDE.md) and it appears automatically.
+ */
+import { hasPublicFile } from '../utils/media';
+
+interface Props {
+  slot: string;
+  label: string;
+  img?: string;
+  video?: string;
+  alt?: string;
+  class?: string;
+  eager?: boolean;
+}
+const { slot, label, img, alt, class: cls = '', eager = false } = Astro.props;
+// Only use a video once the file has actually been added.
+const video = hasPublicFile(Astro.props.video) ? Astro.props.video : undefined;
+---
+<div class:list={['media', video && 'media--video', cls]} data-slot={slot} data-label={label}>
+  {img && <img src={img} alt={alt ?? label} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+  {video && (
+    <video autoplay muted loop playsinline preload="metadata" poster={img}>
+      <source src={video} type="video/mp4" />
+    </video>
+  )}
+</div>

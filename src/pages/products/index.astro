@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import RegrindCard from '../../components/RegrindCard.astro';
+import RegrindAskCard from '../../components/RegrindAskCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import { PRODUCTS, REGRINDS, colourNames } from '../../data/products';
+---
+<BaseLayout
+  title="Products — Recycled HDPE, PP, PPCP, LDPE Granules & Regrinds"
+  description="HDPE blue drum and blow grade granules, PP injection grade, PPCP white, LDPE film grade granules and plastic regrinds. Request a quote."
+  mobileBar
+>
+  <PageHero
+    title="Recycled Granules & Regrinds"
+    text="HDPE, PP, PPCP and LDPE materials for extrusion, blow moulding, injection moulding and film. Prices on enquiry."
+    crumbs={[{ label: 'Products' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Recycled granules</span>
+        <h2>Five granule grades</h2>
+        <p class="lead">Open a product to see colours, possible applications and what to share for an accurate quotation.</p>
+      </div>
+      <div class="grid grid--3">
+        {PRODUCTS.map((p, i) => <ProductCard product={p} delay={i % 3} />)}
+        <a class="pcard pcard--feature reveal" data-delay="2" href="/products/plastic-regrinds">
+          <div class="pcard__body">
+            <span class="pcard__poly">REGRINDS</span>
+            <h3>Plastic Regrinds</h3>
+            <p>HDPE, PPCP and ABS regrinds — washed and hot washed. Enquire for availability.</p>
+            <span class="pcard__more">View regrinds <Icon name="arrow" /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Quick comparison</span>
+        <h2>Which grade fits your process?</h2>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="process-table">
+          <thead><tr><th>Product</th><th>Polymer</th><th>Process</th><th>Colours</th><th>Possible applications</th></tr></thead>
+          <tbody>
+            {PRODUCTS.map((p) => (
+              <tr>
+                <td><a href={`/products/${p.slug}`}>{p.name}</a></td>
+                <td>{p.polymer}</td>
+                <td>{p.process}</td>
+                <td>{colourNames(p)}</td>
+                <td>{p.applications.join(', ')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cat-head reveal">
+        <div class="section-head">
+          <span class="eyebrow">Plastic regrinds</span>
+          <h2>Regrinds — enquire for availability</h2>
+        </div>
+        <a class="btn btn--outline" href="/products/plastic-regrinds">About our regrinds <Icon name="arrow" /></a>
+      </div>
+      <div class="rg-grid rg-grid--3">
+        {REGRINDS.map((r, i) => <RegrindCard regrind={r} delay={i % 3} />)}
+        <RegrindAskCard delay={2} />
+      </div>
+    </div>
+  </section>
+
+  <Disclaimer />
+  <div class="spacer"></div>
+  <CtaBand title="Not sure which grade fits?" text="Tell us your product, process and colour. We'll suggest a material to evaluate and share specifications with the offer." />
+</BaseLayout>

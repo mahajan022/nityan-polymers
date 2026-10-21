@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import Media from './Media.astro';
+import type { Regrind } from '../data/products';
+
+interface Props { regrind: Regrind; delay?: number }
+const { regrind: r, delay = 0 } = Astro.props;
+---
+<a class="rg reveal" data-delay={delay} href={`/products/regrinds/${r.slug}`}>
+  <Media slot={r.slot} label={`${r.name} — photo`} img={`/images/regrinds/${r.slug}.jpg`} alt={r.name} />
+  <div class="rg__body">
+    <strong>{r.name}</strong>
+    <div class="meta">{r.tags.map((t) => <span>{t}</span>)}</div>
+    <span class="pcard__more">View details <Icon name="arrow" /></span>
+  </div>
+</a>

@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+import Media from './Media.astro';
+import Swatches from './Swatches.astro';
+import type { Product } from '../data/products';
+
+interface Props { product: Product; delay?: number }
+const { product: p, delay = 0 } = Astro.props;
+---
+<a class="pcard reveal" data-delay={delay} href={`/products/${p.slug}`}>
+  <Media slot={p.slot} label={`${p.name} — product photo`} img={`/images/products/${p.slug}.jpg`} alt={p.name} />
+  <div class="pcard__body">
+    <span class="pcard__poly">{p.polymer} · {p.process}</span>
+    <h3>{p.name}</h3>
+    <Swatches colours={p.colours} />
+    <p>{p.card}</p>
+    <span class="pcard__more">View details <Icon name="arrow" /></span>
+  </div>
+</a>

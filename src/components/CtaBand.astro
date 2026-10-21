@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import { waLink } from '../data/site';
+
+interface Props { title?: string; text?: string; quoteHref?: string; waText?: string }
+const {
+  title = "Tell us what you're making.",
+  text = "Share the polymer, colour, quantity, application and delivery location. We'll come back with available material details, specifications and price.",
+  quoteHref = '/contact#enquiry',
+  waText,
+} = Astro.props;
+---
+<section class="section section--flush-top">
+  <div class="container">
+    <div class="cta reveal">
+      <div>
+        <span class="eyebrow">Request a quote</span>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={quoteHref}><Icon name="quote" /> Request a Quote</a>
+        <a class="btn btn--wa" href={waLink(waText)} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Icon from '../../../components/Icon.astro';
+import Media from '../../../components/Media.astro';
+import PageHero from '../../../components/PageHero.astro';
+import RegrindCard from '../../../components/RegrindCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import Disclaimer from '../../../components/Disclaimer.astro';
+import { REGRINDS, type Regrind } from '../../../data/products';
+import { waLink, quoteLink } from '../../../data/site';
+import { hasPublicFile } from '../../../utils/media';
+
+export function getStaticPaths() {
+  return REGRINDS.map((regrind) => ({ params: { slug: regrind.slug }, props: { regrind } }));
+}
+
+const { regrind: r } = Astro.props as { regrind: Regrind };
+const waText = `Hello Nityan Polymers, I would like to enquire about ${r.name}.`;
+const others = REGRINDS.filter((x) => x.slug !== r.slug);
+// Gallery photos (slots b, c, d) only show once the file has been added.
+const extras = ['b', 'c', 'd']
+  .map((letter, i) => ({ letter, n: i + 2, img: `/images/regrinds/${r.slug}-${i + 2}.jpg` }))
+  .filter((x) => hasPublicFile(x.img));
+---
+<BaseLayout
+  title={`${r.name} — Plastic Regrind`}
+  description={`${r.description} Request a quote or WhatsApp Nityan Polymers.`}
+  mobileBar
+  waText={waText}
+  quoteHref={quoteLink(r.slug)}
+  image={`/images/regrinds/${r.slug}.jpg`}
+>
+  <PageHero
+    title={r.name}
+    crumbs={[{ href: '/products', label: 'Products' }, { href: '/products/plastic-regrinds', label: 'Regrinds' }, { label: r.name }]}
+  >
+    <div class="page-hero__tags">{r.tags.map((t) => <span>{t}</span>)}</div>
+  </PageHero>
+
+  <section class="pd">
+    <div class="container product__grid">
+      <div class="product__media reveal">
+        <Media slot={r.slot} label={`${r.name} — main photo`} img={`/images/regrinds/${r.slug}.jpg`} alt={r.name} eager />
+        {extras.length > 0 && (
+          <div class="product__thumbs">
+            {extras.map((x) => (
+              <Media slot={`${r.slot}${x.letter}`} label="Extra photo" img={x.img} alt={`${r.name} — photo ${x.n}`} />
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="reveal" data-delay="1">
+        <div class="product__num">{r.slot} · REGRIND</div>
+        <h2>{r.name}</h2>
+        <p class="lead">{r.description}</p>
+        <dl class="spec">
+          <div class="k">Polymer</div><div class="v">{r.polymer}</div>
+          <div class="k">Source</div><div class="v">{r.source}</div>
+          <div class="k">Washing</div><div class="v">{r.washing}</div>
+          <div class="k">Colour</div><div class="v">{r.colour}</div>
+          <div class="k">Form</div><div class="v">Regrind (flakes)</div>
+          <div class="k">Availability &amp; price</div><div class="v">On enquiry — confirmed against your requirement</div>
+        </dl>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={quoteLink(r.slug)}><Icon name="quote" /> Request a Quote</a>
+          <a class="btn btn--wa" href={waLink(waText)} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
+        </div>
+        <div class="pd__ask">
+          <h3>For an accurate quotation, share:</h3>
+          <ul>
+            <li>Intended use and processing method</li>
+            <li>Colour and washing requirement</li>
+            <li>Quantity in kg or MT</li>
+            <li>Delivery city / PIN code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Disclaimer />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">More regrinds</span>
+        <h2>Other regrind types</h2>
+      </div>
+      <div class="rg-grid">
+        {others.map((o, i) => <RegrindCard regrind={o} delay={i % 3} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand quoteHref={quoteLink(r.slug)} waText={waText} title={`Enquire about ${r.name}`} />
+</BaseLayout>

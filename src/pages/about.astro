@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import Media from '../components/Media.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../data/site';
+---
+<BaseLayout
+  title="About Us"
+  description="Nityan Polymers serves India's recycled plastic raw-material market with HDPE, PP, PPCP and LDPE granules and plastic regrinds."
+>
+  <PageHero
+    title="About Nityan Polymers"
+    text="Recycled plastic raw materials, selected around your product, process and budget."
+    crumbs={[{ label: 'About Us' }]}
+  />
+
+  <section class="section">
+    <div class="container split split--wide-text">
+      <div class="reveal">
+        <span class="eyebrow">Who we are</span>
+        <h2>Helping buyers choose the <span class="hl">right</span> recycled material</h2>
+        <!-- Update "is being established" once the business is operating (see developer brief) -->
+        <p class="lead">Nityan Polymers is being established to serve India’s recycled plastic raw-material market. Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
+        <p>Our range includes HDPE blue drum granules, HDPE blow-grade granules, PP injection-grade granules, PPCP white granules and LDPE film-grade granules. Buyers can also enquire about plastic regrinds according to their requirements.</p>
+        <div class="btn-row" style="margin-top:26px">
+          <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
+          <a class="btn btn--primary" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
+        </div>
+      </div>
+      <div class="media-stack reveal" data-delay="1">
+        <Media slot="A1" label="About page main photo" img="/images/site/about-main.jpg" />
+        <Media slot="A2" label="Secondary photo" img="/images/site/about-2.jpg" class="media--inset" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our materials</span>
+        <h2>Four polymers. One clear focus.</h2>
+      </div>
+      <div class="stat-row reveal">
+        <div class="stat"><strong>HDPE</strong><span>Blue drum &amp; blow-grade granules, HDPE regrinds</span></div>
+        <div class="stat"><strong>PP</strong><span>Injection-grade granules in natural, white &amp; black</span></div>
+        <div class="stat"><strong>PPCP</strong><span>White granules, battery &amp; paint-bucket regrinds</span></div>
+        <div class="stat"><strong>LDPE</strong><span>Film-grade granules for bags, liners &amp; non-food film</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Our approach</span>
+        <h2>How we work with buyers</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature reveal"><div class="feature__ico"><Icon name="target" /></div><h3>Start with the application</h3><p>Tell us what you're making, how you process it and what matters most — flow, strength, finish or colour.</p></div>
+        <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="tag" /></div><h3>Prices on enquiry</h3><p>Quotations reflect the material and order requirements, so every buyer gets a price that fits their order.</p></div>
+        <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="recycle" /></div><h3>Responsible claims</h3><p>Applications are indicative and confirmed through technical review and trial. Food-contact suitability is not claimed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container founder">
+      <div class="reveal">
+        <span class="eyebrow">Leadership</span>
+        <blockquote>Our focus is simple — help every buyer select the right recycled material for their product, processing needs and budget.</blockquote>
+      </div>
+      <div class="team">
+        {SITE.team.map((m, i) => (
+          <figure class="team__member reveal" data-delay={i}>
+            <Media slot={m.slot} label={`Leadership photo ${i + 1}`} img={m.img} alt={m.name || 'Nityan Polymers leadership'} />
+            {(m.name || m.role) && (
+              <figcaption>
+                {m.name && <strong>{m.name}</strong>}
+                {m.role && <span>{m.role}, Nityan Polymers</span>}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+      <div class="btn-row reveal">
+        <a class="btn btn--outline btn--sm" href={`tel:${SITE.tel}`}><Icon name="phone" /> {SITE.phone}</a>
+        <a class="btn btn--outline btn--sm" href={`mailto:${SITE.email}`}><Icon name="mail" /> Email us</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+  <CtaBand />
+</BaseLayout>

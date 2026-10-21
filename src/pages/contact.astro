@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { SITE, waLink } from '../data/site';
+
+const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&z=14&output=embed`;
+---
+<BaseLayout
+  title="Contact Us & Request a Quote"
+  description="Request a quote for recycled HDPE, PP, PPCP, LDPE granules and plastic regrinds. Call or WhatsApp +91 91189 85119 or email sales@nityanpolymers.com."
+  mobileBar
+>
+  <PageHero
+    title="Request a Quote"
+    text="Share your product, colour, quantity and delivery location. We'll respond with available material details and price."
+    crumbs={[{ label: 'Contact Us' }]}
+  />
+
+  <section class="section" id="enquiry" style="scroll-margin-top:90px">
+    <div class="container contact-grid">
+      <aside class="info-card reveal">
+        <div class="person">
+          <span class="avatar" aria-hidden="true">NP</span>
+          <div><strong>{SITE.name}</strong><span>Sales &amp; enquiries</span></div>
+        </div>
+        <div class="info-row"><span class="ico"><Icon name="phone" /></span><div><small>Mobile</small><a href={`tel:${SITE.tel}`}>{SITE.phone}</a></div></div>
+        <div class="info-row"><span class="ico"><Icon name="wa" /></span><div><small>WhatsApp</small><a href={waLink()} target="_blank" rel="noopener">Chat with us</a></div></div>
+        <div class="info-row"><span class="ico"><Icon name="mail" /></span><div><small>E-mail</small><a href={`mailto:${SITE.email}`}>{SITE.email}</a></div></div>
+        <div class="info-row"><span class="ico"><Icon name="pin" /></span><div><small>Address</small><address>{SITE.address.map((l) => <>{l}<br /></>)}</address></div></div>
+      </aside>
+      <EnquiryForm />
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container">
+      <div class="map reveal">
+        <iframe title="Map — Signature Global Solera, Sector 107, Gurugram" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={mapSrc}></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

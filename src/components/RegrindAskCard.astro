@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+import { quoteLink } from '../data/site';
+
+interface Props { delay?: number }
+const { delay = 0 } = Astro.props;
+---
+<a class="rg rg--ask reveal" data-delay={delay} href={quoteLink('other-regrind')}>
+  <div class="rg__body">
+    <span class="pcard__poly">OTHER REGRINDS</span>
+    <strong>Need a different regrind?</strong>
+    <p>Tell us the polymer, colour, washing requirement and quantity — we'll check what's available.</p>
+    <span class="pcard__more">Send an enquiry <Icon name="arrow" /></span>
+  </div>
+</a>

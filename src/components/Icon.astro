@@ -1,0 +1,48 @@
+---
+/**
+ * Site icons. Meaningful icons (phone, WhatsApp, email, features…) are full-colour,
+ * drawn in their real-world colours. UI arrows/chevrons stay single-colour (currentColor).
+ * Pass `mono` to force the single-colour version (e.g. white WhatsApp glyph on the green float button).
+ */
+interface Props { name: string; class?: string; mono?: boolean }
+const { name, class: cls, mono = false } = Astro.props;
+
+const WA_GLYPH = 'M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z';
+const WA_RING = 'M12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 0 1 2.2 12C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4z';
+const HANDSET = 'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z';
+
+// Full-colour icons (24×24).
+const COLOR: Record<string, string> = {
+  wa: `<path d="M12 .9a11 11 0 0 0-9.5 16.6L.9 23.1l5.8-1.5A11 11 0 1 0 12 .9z" fill="#25D366" stroke="#fff" stroke-width="1.1"/><path d="${WA_GLYPH}" fill="#fff"/>`,
+  phone: `<circle cx="12" cy="12" r="12" fill="#22C55E"/><path d="${HANDSET}" fill="#fff" transform="translate(5.6 5.6) scale(.54)"/>`,
+  mail: '<rect x="1.5" y="4" width="21" height="16" rx="3" fill="#3B82F6"/><path d="M1.9 6.4 12 13.4l10.1-7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="m2.4 18.6 7.1-6.4M21.6 18.6l-7.1-6.4" stroke="#93C5FD" stroke-width="1.3"/>',
+  pin: '<path d="M12 23s8-7.2 8-13.2A8 8 0 0 0 4 9.8C4 15.8 12 23 12 23z" fill="#EF4444"/><path d="M12 23s8-7.2 8-13.2a8 8 0 0 0-8-8z" fill="#DC2626"/><circle cx="12" cy="9.8" r="3.2" fill="#fff"/>',
+  quote: '<path d="M6 1.5h9l5 5V21a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 5 21V3A1.5 1.5 0 0 1 6.5 1.5z" fill="#fff" stroke="#111" stroke-width="1.3"/><path d="M15 1.5V6a.5.5 0 0 0 .5.5H20" fill="#E2E8F0" stroke="#111" stroke-width="1.3" stroke-linejoin="round"/><path d="M8.5 11h7M8.5 14.2h7M8.5 17.4h4.5" stroke="#3B82F6" stroke-width="1.6" stroke-linecap="round"/>',
+  info: '<circle cx="12" cy="12" r="11" fill="#3B82F6"/><path d="M12 10.8v6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="7.3" r="1.5" fill="#fff"/>',
+  target: '<circle cx="11" cy="13" r="10" fill="#EF4444"/><circle cx="11" cy="13" r="7" fill="#fff"/><circle cx="11" cy="13" r="4.2" fill="#EF4444"/><circle cx="11" cy="13" r="1.6" fill="#fff"/><path d="M11 13 20.5 3.5" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round"/><path d="m18.2 2.2 1.2 2.4 2.4 1.2 1.6-1.6-2.4-1.2-1.2-2.4z" fill="#FCC00D" stroke="#1F2937" stroke-width=".8" stroke-linejoin="round"/>',
+  palette: '<path d="M12 1.5C6 1.5 1.5 6 1.5 11.6c0 5.6 4.6 10.9 10.2 10.9 1.3 0 2-.9 2-1.9 0-.5-.2-.9-.5-1.3-.3-.3-.5-.8-.5-1.2 0-1 .8-1.8 1.8-1.8h2.3c3.4 0 5.7-2.6 5.7-5.7 0-5-4.6-9.1-10.5-9.1z" fill="#E9B872" stroke="#B7791F" stroke-width="1"/><circle cx="7" cy="12" r="1.9" fill="#EF4444"/><circle cx="8.6" cy="7" r="1.9" fill="#3B82F6"/><circle cx="13.8" cy="5.6" r="1.9" fill="#22C55E"/><circle cx="18" cy="9.2" r="1.9" fill="#FCC00D"/><circle cx="8.6" cy="17" r="1.9" fill="#111"/>',
+  flask: '<path d="M8.5 1.5h7M10 1.5v7.2L3.6 19.6A2 2 0 0 0 5.3 22.5h13.4a2 2 0 0 0 1.7-2.9L14 8.7V1.5" fill="#E0F2FE" stroke="#1F2937" stroke-width="1.5" stroke-linejoin="round"/><path d="M6.3 15h11.4l2.7 4.6a2 2 0 0 1-1.7 2.9H5.3a2 2 0 0 1-1.7-2.9z" fill="#22C55E"/><circle cx="10" cy="18.6" r="1.1" fill="#fff" opacity=".85"/><circle cx="13.6" cy="17.2" r=".8" fill="#fff" opacity=".85"/><circle cx="12.4" cy="12.3" r=".7" fill="#22C55E"/><path d="M8.5 1.5h7" stroke="#1F2937" stroke-width="1.8" stroke-linecap="round"/>',
+  shield: '<path d="M12 23s9-4.3 9-11.3V4.6L12 1 3 4.6v7.1C3 18.7 12 23 12 23z" fill="#2563EB"/><path d="M12 23s9-4.3 9-11.3V4.6L12 1z" fill="#3B82F6"/><path d="m7.8 12 3 3 5.6-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
+  tag: '<path d="M21.4 12.8 12.8 21.4a2 2 0 0 1-2.8 0L1.5 12.9V3.5a2 2 0 0 1 2-2h9.4l8.5 8.5a2 2 0 0 1 0 2.8z" fill="#F97316"/><path d="M12.9 1.5 21.4 10a2 2 0 0 1 0 2.8l-8.6 8.6a2 2 0 0 1-1.4.6z" fill="#EA580C"/><circle cx="7" cy="7" r="2" fill="#fff"/><path d="M9.6 12.4h5.2M9.6 15.2h3.4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>',
+  recycle: '<g fill="none" stroke="#16A34A" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7.2 9.5"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2.1"/><path d="m14 16-3 3 3 3"/><path d="M8.3 13.6 7.2 9.5 3.1 10.6"/><path d="m9.3 5.6 1.1-1.9a1.8 1.8 0 0 1 3.1 0l3.9 6.8"/><path d="m13.4 9.5 4.1 1.1 1.1-4.1"/></g>',
+  check: '<circle cx="12" cy="12" r="12" fill="#22C55E"/><path d="m6.5 12.3 3.6 3.6 7.4-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>',
+  layers: '<path d="m12 13.5 10 5-10 5-10-5z" fill="#FCC00D"/><path d="m12 8.5 10 5-10 5-10-5z" fill="#14B8A6"/><path d="m12 1.5 10 5-10 5-10-5z" fill="#3B82F6"/>',
+};
+
+// Single-colour UI icons (stroke, currentColor).
+const MONO: Record<string, string> = {
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  chev: '<path d="m6 9 6 6 6-6"/>',
+  check: '<path d="m5 12 5 5 9-10"/>',
+  phone: `<path d="${HANDSET}"/>`,
+};
+
+const colour = !mono && COLOR[name];
+---
+{name === 'wa' && mono ? (
+  <svg class={cls} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={WA_GLYPH} /><path d={WA_RING} /></svg>
+) : colour ? (
+  <svg class:list={['icon-c', cls]} viewBox="0 0 24 24" fill="none" aria-hidden="true" set:html={colour} />
+) : (
+  <svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={name === 'check' ? 3 : name === 'chev' ? 2.4 : 2} stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={MONO[name] ?? ''} />
+)}

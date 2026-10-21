@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import Media from '../components/Media.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { waLink, quoteLink } from '../data/site';
+import { PRODUCTS, REGRINDS } from '../data/products';
+
+const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)];
+---
+<BaseLayout
+  title="Nityan Polymers"
+  description="Nityan Polymers supplies recycled HDPE, PP, PPCP and LDPE granules and plastic regrinds for Indian manufacturers. Request a quote or WhatsApp us."
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="reveal">
+        <span class="hero__tag"><b>NITYAN</b> Plastic Regrinds &amp; Recycled Granules</span>
+        <h1>Recycled Plastic <span class="hl">Granules</span> &amp; <span class="hl">Regrinds</span> for Indian Manufacturers</h1>
+        <p class="lead">Nityan Polymers focuses on recycled HDPE, PP, PPCP and LDPE materials for Indian manufacturers. Explore our product range and share your application, colour, quantity and delivery location to discuss your requirement.</p>
+        <div class="btn-row">
+          <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
+          <a class="btn btn--primary" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
+          <a class="btn btn--wa" href={waLink('Hello Nityan Polymers, I would like to enquire about your recycled plastic materials.')} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
+        </div>
+        <div class="hero__polymers"><span>HDPE</span><span>PP</span><span>PPCP</span><span>LDPE</span></div>
+      </div>
+      <div class="hero__visual reveal" data-delay="2">
+        <div class="hero__chip"><b>Material range</b>5 granule grades + regrinds</div>
+        <Media slot="H1" label="Hero video (MP4) or photo — granules / material close-up" img="/images/site/hero.jpg" video="/videos/hero.mp4" alt="Recycled plastic granules" eager />
+        <div class="hero__badge">
+          <span class="ico"><img src="/images/logo/mark.svg" alt="" /></span>
+          <span><strong>Prices on enquiry</strong><small>Quotes matched to your material &amp; order</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip__track">{[...marquee, ...marquee].map((m) => <span>{m}</span>)}</div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cat-head reveal">
+        <div class="section-head">
+          <span class="eyebrow">Our product range</span>
+          <h2>Recycled granules for extrusion, blow &amp; injection moulding</h2>
+          <p class="lead">Choose by polymer, process and colour. Specifications, sample arrangements and availability are confirmed with each offer.</p>
+        </div>
+        <a class="btn btn--outline" href="/products">All products <Icon name="arrow" /></a>
+      </div>
+      <div class="grid grid--3">
+        {PRODUCTS.map((p, i) => <ProductCard product={p} delay={i % 3} />)}
+        <a class="pcard pcard--feature reveal" data-delay="2" href="/products/plastic-regrinds">
+          <div class="pcard__body">
+            <span class="pcard__poly">REGRINDS</span>
+            <h3>Plastic Regrinds</h3>
+            <p>Washed and hot-washed HDPE, PPCP and ABS regrinds. Send the polymer, colour, washing requirement and quantity — availability is confirmed against your enquiry.</p>
+            <span class="pcard__more">Enquire for availability <Icon name="arrow" /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-yellow">
+    <div class="container split split--wide-text">
+      <div class="reveal">
+        <span class="eyebrow">Plastic regrinds</span>
+        <h2>Looking for recycled plastic regrinds?</h2>
+        <p class="lead">Send the polymer type, colour, washing requirement, quantity and intended use. Available material details and prices will be confirmed against your enquiry.</p>
+        <div class="btn-row" style="margin-top:28px">
+          <a class="btn btn--dark" href="/products/plastic-regrinds">See regrind range <Icon name="arrow" /></a>
+          <a class="btn btn--outline" href={waLink('Hello Nityan Polymers, I would like to enquire about plastic regrinds.')} target="_blank" rel="noopener"><Icon name="wa" /> Ask on WhatsApp</a>
+        </div>
+      </div>
+      <div class="regrind-list">
+        {REGRINDS.map((r, i) => (
+          <a class="regrind-item reveal" data-delay={i % 3} href={`/products/regrinds/${r.slug}`}>
+            <span class="num">{r.slot}</span>
+            <span><strong>{r.name}</strong><small>{r.source} · {r.washing}</small></span>
+            <span class="arrow"><Icon name="arrow" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Why buyers talk to us</span>
+        <h2>Material selection that starts with <span class="hl">your product</span></h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="feature reveal"><div class="feature__ico"><Icon name="target" /></div><h3>Application-led</h3><p>We match material to your product, processing needs and budget — not the other way around.</p></div>
+        <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="palette" /></div><h3>Clear colour options</h3><p>Natural, white, black and blue options across grades, confirmed with each offer.</p></div>
+        <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="flask" /></div><h3>Trial before you commit</h3><p>Specifications and sample arrangements are shared with the offer so you can run a production trial.</p></div>
+        <div class="feature reveal" data-delay="3"><div class="feature__ico"><Icon name="shield" /></div><h3>Honest material info</h3><p>No inflated claims — no unverified PE100 or food-contact grades. Suitability is confirmed by trial.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How to enquire</span>
+        <h2>From requirement to quotation in four simple steps</h2>
+      </div>
+      <div class="grid grid--4 steps">
+        <div class="step reveal"><h3>Share your requirement</h3><p>Polymer, colour, quantity in kg or MT, application and delivery city / PIN code.</p></div>
+        <div class="step reveal" data-delay="1"><h3>Material review</h3><p>We check available material against your product and processing needs.</p></div>
+        <div class="step reveal" data-delay="2"><h3>Offer &amp; specifications</h3><p>Receive price, specifications, packaging and sample terms with the offer.</p></div>
+        <div class="step reveal" data-delay="3"><h3>Trial &amp; supply</h3><p>Confirm suitability through a production trial, then plan your order.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="media-stack reveal">
+        <Media slot="H2" label="About photo — material / warehouse / team" img="/images/site/home-about.jpg" />
+        <Media slot="H3" label="Close-up of granules" img="/images/site/home-about-2.jpg" class="media--inset" />
+      </div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">About Nityan Polymers</span>
+        <h2>Serving India's recycled plastic raw-material market</h2>
+        <p class="lead">Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
+        <ul class="checklist">
+          <li>HDPE blue drum and blow-grade granules</li>
+          <li>PP injection-grade and PPCP white granules</li>
+          <li>LDPE film-grade granules</li>
+          <li>HDPE, PPCP and ABS plastic regrinds on enquiry</li>
+        </ul>
+        <a class="btn btn--outline" href="/about">More about us <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand quoteHref={quoteLink()} />
+</BaseLayout>

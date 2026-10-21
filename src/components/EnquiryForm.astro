@@ -1,0 +1,85 @@
+---
+import Icon from './Icon.astro';
+import { PRODUCTS, REGRINDS, FORM_COLOURS } from '../data/products';
+---
+<div class="form-card reveal" data-delay="1">
+  <h2 class="form-card__title">Enquiry form</h2>
+  <p class="form-card__sub">Fields marked <span class="req">*</span> are required. Prices are shared on enquiry.</p>
+  <form id="enquiry-form" novalidate data-colours={JSON.stringify(FORM_COLOURS)}>
+    <div class="form-grid">
+      <div class="field">
+        <label for="f-name">Name <span class="req">*</span></label>
+        <input id="f-name" name="name" autocomplete="name" required />
+        <span class="err">Please enter your name</span>
+      </div>
+      <div class="field">
+        <label for="f-company">Company</label>
+        <input id="f-company" name="company" autocomplete="organization" />
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone / WhatsApp <span class="req">*</span></label>
+        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91" required />
+        <span class="err">Please enter a valid phone number</span>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" />
+        <span class="err">Please enter a valid email</span>
+      </div>
+      <div class="field">
+        <label for="f-product">Product <span class="req">*</span></label>
+        <select id="f-product" name="product" required>
+          <option value="">Select product</option>
+          <optgroup label="Recycled granules">
+            {PRODUCTS.map((p) => <option value={p.slug}>{p.name}</option>)}
+          </optgroup>
+          <optgroup label="Plastic regrinds">
+            {REGRINDS.map((r) => <option value={r.slug}>{r.name}</option>)}
+            <option value="other-regrind">Other regrind (specify in message)</option>
+          </optgroup>
+        </select>
+        <span class="err">Please select a product</span>
+      </div>
+      <div class="field">
+        <label for="f-colour">Colour</label>
+        <select id="f-colour" name="colour"><option value="">Select colour</option></select>
+      </div>
+      <div class="field">
+        <label for="f-qty">Quantity</label>
+        <div class="qty">
+          <input id="f-qty" name="quantity" inputmode="decimal" placeholder="e.g. 5" />
+          <select name="unit" aria-label="Unit"><option>MT</option><option>kg</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-app">Application</label>
+        <input id="f-app" name="application" placeholder="e.g. pails, film, bottles" />
+      </div>
+      <div class="field field--full">
+        <label for="f-loc">Delivery city / PIN code</label>
+        <input id="f-loc" name="location" autocomplete="postal-code" />
+      </div>
+      <div class="field field--full">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" placeholder="Monthly quantity, quality requirements, processing method…"></textarea>
+      </div>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+    </div>
+    <div class="form-foot">
+      <small>By sending this enquiry you agree to be contacted about your requirement. See our <a href="/privacy">privacy notice</a>.</small>
+      <div class="btn-row">
+        <a class="btn btn--wa" href="#" data-wa-form><Icon name="wa" /> Send on WhatsApp</a>
+        <button class="btn btn--primary" type="submit">Send Enquiry <Icon name="arrow" /></button>
+      </div>
+    </div>
+  </form>
+  <div class="form-success" role="status" aria-live="polite">
+    <div class="tick"><Icon name="check" /></div>
+    <h3>Thank you — enquiry received</h3>
+    <p data-sent-note>We'll review your requirement and get back to you with material details and price.</p>
+    <div class="btn-row">
+      <a class="btn btn--wa" href="#" data-wa-form><Icon name="wa" /> Also send on WhatsApp</a>
+      <button class="btn btn--outline" type="button" data-form-again>New enquiry</button>
+    </div>
+  </div>
+</div>

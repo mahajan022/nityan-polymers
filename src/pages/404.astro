@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+<BaseLayout title="Page not found" description="The page you are looking for could not be found.">
+  <section class="section notfound">
+    <div class="container">
+      <strong>404</strong>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">This page could not be found</h1>
+      <p class="lead" style="margin-inline:auto">It may have moved. Try our products or send us an enquiry.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
+        <a class="btn btn--primary" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

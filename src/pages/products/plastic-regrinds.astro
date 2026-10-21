@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import Media from '../../components/Media.astro';
+import PageHero from '../../components/PageHero.astro';
+import RegrindCard from '../../components/RegrindCard.astro';
+import RegrindAskCard from '../../components/RegrindAskCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import { REGRINDS } from '../../data/products';
+import { waLink, quoteLink } from '../../data/site';
+
+const waText = 'Hello Nityan Polymers, I would like to enquire about plastic regrinds.';
+---
+<BaseLayout
+  title="Plastic Regrinds — HDPE, PPCP & ABS"
+  description="Washed and hot-washed HDPE, PPCP and ABS plastic regrinds. Send polymer, colour, washing requirement and quantity to check availability."
+  mobileBar
+  waText={waText}
+  quoteHref={quoteLink('other-regrind')}
+>
+  <PageHero
+    title="Plastic Regrinds"
+    text="Enquire for availability — HDPE, PPCP and ABS regrinds, washed and hot washed."
+    crumbs={[{ href: '/products', label: 'Products' }, { label: 'Plastic Regrinds' }]}
+  />
+
+  <section class="pd">
+    <div class="container product__grid" style="align-items:center">
+      <div class="reveal">
+        <div class="product__num">06 · REGRINDS</div>
+        <h2>Looking for recycled plastic regrinds?</h2>
+        <p class="lead">Send the polymer type, colour, washing requirement, quantity and intended use.</p>
+        <p>Available material details and prices will be confirmed against your enquiry.</p>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--primary" href={quoteLink('other-regrind')}><Icon name="quote" /> Request a Quote</a>
+          <a class="btn btn--wa" href={waLink(waText)} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="1">
+        <Media slot="P6" label="Regrinds overview photo or video" img="/images/regrinds/regrinds-overview.jpg" video="/videos/regrinds.mp4" eager />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Regrind range</span>
+        <h2>Current regrind types</h2>
+        <p class="lead">Open a regrind to send an enquiry for it. Availability, colour and price are confirmed with each offer.</p>
+      </div>
+      <div class="rg-grid rg-grid--3">
+        {REGRINDS.map((r, i) => <RegrindCard regrind={r} delay={i % 3} />)}
+        <RegrindAskCard delay={2} />
+      </div>
+    </div>
+  </section>
+
+  <Disclaimer />
+  <div class="spacer"></div>
+  <CtaBand title="Need a regrind that's not listed?" text="Tell us the polymer, colour, washing requirement and quantity — we'll check what's available." quoteHref={quoteLink('other-regrind')} waText={waText} />
+</BaseLayout>
