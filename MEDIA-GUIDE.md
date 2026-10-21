@@ -28,8 +28,9 @@ Main photo = `<name>.jpg`; three extra gallery photos = `<name>-2.jpg`, `-3.jpg`
 | P1 | HDPE Blue Drum Granules | `hdpe-blue-drum-granules.jpg` |
 | P2 | HDPE Blow Grade Granules | `hdpe-blow-grade-granules.jpg` |
 | P3 | PP Injection Grade Granules | `pp-injection-grade-granules.jpg` |
-| P4 | PPCP White Granules | `ppcp-white-granules.jpg` |
+| P4 | PPCP Grade Granules | `ppcp-granules.jpg` |
 | P5 | LDPE Film Grade Granules | `ldpe-film-grade-granules.jpg` |
+| P7 | HDPE Pipe Grade Granules | `hdpe-pipe-grade-granules.jpg` |
 
 ## Regrinds — `public/images/regrinds/`
 

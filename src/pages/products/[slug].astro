@@ -85,6 +85,12 @@ const productSchema = {
               </div>
             )}
           </div>
+          {p.grades && (
+            <>
+              <div class="k">Grades</div>
+              <div class="v"><div class="tags">{p.grades.map((g) => <span class="tag">{g}</span>)}</div></div>
+            </>
+          )}
           <div class="k">Form</div><div class="v">{p.form}</div>
           <div class="k">Process</div><div class="v">{p.process}</div>
           <div class="k">Possible applications</div>

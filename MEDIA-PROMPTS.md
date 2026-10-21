@@ -26,10 +26,10 @@ Add this style line to the end of every prompt:
 | 19 | P3b | images/products/pp-injection-grade-granules-2.jpg | 1200×1200 | Macro of natural recycled PP granules |
 | 20 | P3c | images/products/pp-injection-grade-granules-3.jpg | 1200×1200 | Handful of white recycled PP granules in a gloved hand |
 | 21 | P3d | images/products/pp-injection-grade-granules-4.jpg | 1200×1200 | Plain injection-moulded plastic storage boxes and crates (no labels) stacked neatly |
-| 22 | P4 | images/products/ppcp-white-granules.jpg | 1600×1600 | A heap of bright white recycled PP copolymer granules, a plain white plastic pail without labels blurred behind |
-| 23 | P4b | images/products/ppcp-white-granules-2.jpg | 1200×1200 | Extreme macro of white recycled PPCP granules |
-| 24 | P4c | images/products/ppcp-white-granules-3.jpg | 1200×1200 | Steel scoop of white PPCP granules over an open woven sack |
-| 25 | P4d | images/products/ppcp-white-granules-4.jpg | 1200×1200 | A row of plain white plastic pails and utility containers, no labels |
+| 22 | P4 | images/products/ppcp-granules.jpg | 1600×1600 | A heap of bright white recycled PP copolymer granules, a plain white plastic pail without labels blurred behind |
+| 23 | P4b | images/products/ppcp-granules-2.jpg | 1200×1200 | Extreme macro of white recycled PPCP granules |
+| 24 | P4c | images/products/ppcp-granules-3.jpg | 1200×1200 | Steel scoop of white PPCP granules over an open woven sack |
+| 25 | P4d | images/products/ppcp-granules-4.jpg | 1200×1200 | A row of plain white plastic pails and utility containers, no labels |
 | 26 | P5 | images/products/ldpe-film-grade-granules.jpg | 1600×1600 | A pile of slightly translucent natural recycled LDPE granules, a roll of plastic film and black garbage bags blurred behind |
 | 27 | P5b | images/products/ldpe-film-grade-granules-2.jpg | 1200×1200 | Macro of translucent recycled LDPE granules with light passing through |
 | 28 | P5c | images/products/ldpe-film-grade-granules-3.jpg | 1200×1200 | Large roll of plastic film on a core, close-up |

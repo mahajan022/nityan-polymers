@@ -16,6 +16,7 @@ export type Product = {
   description: string[];
   applications: string[];
   process: string;
+  grades?: string[]; // grade variants shown on the product page
   note?: string;
 };
 
@@ -40,14 +41,32 @@ export const PRODUCTS: Product[] = [
     name: 'HDPE Blue Drum Granules',
     colours: [{ key: 'blue', name: 'Blue' }],
     form: 'Recycled granules',
-    process: 'Extrusion & compounding',
-    card: 'Recycled HDPE granules from blue drum material, for extrusion and compounding enquiries.',
+    process: 'Blow moulding (LBM / MBM)',
+    grades: ['For LBM (Large Blow Moulding)', 'For MBM (Medium Blow Moulding)'],
+    card: 'Recycled HDPE granules from blue drum material, for large and medium blow moulding.',
     description: [
-      'Recycled HDPE granules made from blue drum material. Buyers can enquire for suitable extrusion and compounding uses.',
-      'Share your intended product and technical requirements so we can assess whether the material suits your process.',
+      'Recycled HDPE granules made from blue drum material, offered for LBM (large blow moulding) and MBM (medium blow moulding).',
+      'Share your product size, wall thickness and quality requirements so we can recommend the suitable grade.',
     ],
-    applications: ['Extrusion (non-pressure)', 'Compounding', 'General HDPE products — subject to trial'],
-    note: 'Blue drum material is not automatically PE100. Any pipe application must meet the relevant material and finished-product requirements. This material is not offered as PE100 pressure-pipe grade.',
+    applications: ['Large blow-moulded containers & drums', 'Medium blow-moulded containers', 'Jerrycans & hollow products'],
+  },
+  {
+    slug: 'hdpe-pipe-grade-granules',
+    slot: 'P7',
+    polymer: 'HDPE',
+    short: 'HDPE Pipe Grade',
+    name: 'HDPE Pipe Grade Granules',
+    colours: [{ key: 'black', name: 'Black' }],
+    form: 'Recycled granules',
+    process: 'Pipe extrusion',
+    grades: ['PE 100 Black', 'PE 80 Black', 'PE 63 Black'],
+    card: 'Black HDPE pipe-grade granules in PE 100, PE 80 and PE 63 grades for pipe extrusion.',
+    description: [
+      'Black HDPE pipe-grade granules available in PE 100, PE 80 and PE 63 grades for pipe extrusion.',
+      'Tell us the grade, pipe size and pressure class you manufacture, along with your monthly quantity.',
+    ],
+    applications: ['HDPE pipe extrusion', 'Water & irrigation pipes', 'Conduit & duct pipes'],
+    note: 'Grade details are confirmed with each offer. Finished pipes must meet the relevant material and product standards for their application.',
   },
   {
     slug: 'hdpe-blow-grade-granules',
@@ -90,20 +109,24 @@ export const PRODUCTS: Product[] = [
     applications: ['Household articles', 'Storage products', 'General plastic components'],
   },
   {
-    slug: 'ppcp-white-granules',
+    slug: 'ppcp-granules',
     slot: 'P4',
     polymer: 'PPCP',
-    short: 'PPCP White',
-    name: 'PPCP White Granules',
-    colours: [{ key: 'white', name: 'White' }],
+    short: 'PPCP Grade',
+    name: 'PPCP Grade Granules',
+    colours: [
+      { key: 'black', name: 'Black' },
+      { key: 'white', name: 'White' },
+    ],
     form: 'Recycled granules',
     process: 'Injection moulding',
-    card: 'White recycled PP copolymer for pails, utility containers and moulded articles.',
+    grades: ['PPCP Black (Battery)', 'PPCP White (Bucket)'],
+    card: 'Recycled PP copolymer in black (from battery) and white (from bucket) grades.',
     description: [
-      'White recycled polypropylene copolymer granules for evaluation in pails, utility containers and other moulded articles.',
-      'Please specify the required melt flow, impact strength and white shade with your enquiry.',
+      'Recycled polypropylene copolymer granules in two grades: PPCP Black, from battery material, and PPCP White, from bucket material.',
+      'Please specify the grade, required melt flow, impact strength and shade with your enquiry.',
     ],
-    applications: ['Pails & buckets', 'Utility containers', 'Moulded articles'],
+    applications: ['Pails & buckets', 'Battery cases & automotive parts', 'Utility containers & moulded articles'],
   },
   {
     slug: 'ldpe-film-grade-granules',
@@ -130,10 +153,10 @@ export const REGRINDS: Regrind[] = [
     polymer: 'HDPE',
     name: 'HDPE Blue Drum Regrind',
     source: '200-litre blue drums',
-    washing: 'Washed',
+    washing: 'Unwashed / Cold washed / Hot washed',
     colour: 'Blue',
-    tags: ['HDPE', 'Washed', 'Blue'],
-    description: 'Washed HDPE regrind from 200-litre blue drums. Share your intended use, quantity and delivery location to check availability.',
+    tags: ['HDPE', 'Blue', 'Unwashed', 'Cold washed', 'Hot washed'],
+    description: 'HDPE regrind from 200-litre blue drums, available unwashed, cold washed or hot washed. Share your intended use, quantity and delivery location to check availability.',
   },
   {
     slug: 'ppcp-battery-regrind',
@@ -141,10 +164,10 @@ export const REGRINDS: Regrind[] = [
     polymer: 'PPCP',
     name: 'PPCP Battery Regrind',
     source: 'Battery cases',
-    washing: 'Hot washed',
+    washing: 'Unwashed / Cold washed / Hot washed',
     colour: 'As available',
-    tags: ['PPCP', 'Hot washed'],
-    description: 'Hot-washed PPCP regrind from battery cases. Share your application, colour preference and quantity to check availability.',
+    tags: ['PPCP', 'Unwashed', 'Cold washed', 'Hot washed'],
+    description: 'PPCP regrind from battery cases, available unwashed, cold washed or hot washed. Share your application, colour preference and quantity to check availability.',
   },
   {
     slug: 'abs-regrind',
@@ -152,10 +175,10 @@ export const REGRINDS: Regrind[] = [
     polymer: 'ABS',
     name: 'ABS Regrind',
     source: 'Confirmed with offer',
-    washing: 'Hot washed',
+    washing: 'Unwashed / Cold washed / Hot washed',
     colour: 'As available',
-    tags: ['ABS', 'Hot washed'],
-    description: 'Hot-washed ABS regrind. Share your intended product, colour requirement and quantity to check availability.',
+    tags: ['ABS', 'Unwashed', 'Cold washed', 'Hot washed'],
+    description: 'ABS regrind, available unwashed, cold washed or hot washed. Share your intended product, colour requirement and quantity to check availability.',
   },
   {
     slug: 'ppcp-white-paint-bucket-regrind',
