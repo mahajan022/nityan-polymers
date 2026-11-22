@@ -9,7 +9,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuer
 ---
 <BaseLayout
   title="Contact Us & Request a Quote"
-  description="Request a quote for recycled HDPE, PP, PPCP, LDPE granules and plastic regrinds. Call or WhatsApp +91 91189 85119 or email sales@nityanpolymers.com."
+  description="Request a quote for recycled HDPE, PP, PPCP, LDPE granules and plastic regrinds. Call or WhatsApp +91 95371 12360 or email care.akshitarecycle@gmail.com. Akshita Recycle, Surat, Gujarat, India."
   mobileBar
 >
   <PageHero
@@ -22,13 +22,14 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuer
     <div class="container contact-grid">
       <aside class="info-card reveal">
         <div class="person">
-          <span class="avatar" aria-hidden="true">NP</span>
+          <span class="avatar" aria-hidden="true">AR</span>
           <div><strong>{SITE.name}</strong><span>Sales &amp; enquiries</span></div>
         </div>
         <div class="info-row"><span class="ico"><Icon name="phone" /></span><div><small>Mobile</small><a href={`tel:${SITE.tel}`}>{SITE.phone}</a></div></div>
         <div class="info-row"><span class="ico"><Icon name="wa" /></span><div><small>WhatsApp</small><a href={waLink()} target="_blank" rel="noopener">Chat with us</a></div></div>
         <div class="info-row"><span class="ico"><Icon name="mail" /></span><div><small>E-mail</small><a href={`mailto:${SITE.email}`}>{SITE.email}</a></div></div>
-        <div class="info-row"><span class="ico"><Icon name="pin" /></span><div><small>Address</small><address>{SITE.address.map((l) => <>{l}<br /></>)}</address></div></div>
+        <div class="info-row"><span class="ico"><Icon name="pin" /></span><div><small>Address</small><address>{SITE.address.map((l) => <>{l}<br /></>)}</address><a class="info-link" href={SITE.mapLink} target="_blank" rel="noopener">Open in Google Maps &rarr;</a></div></div>
+        <div class="info-row"><span class="ico"><Icon name="shield" /></span><div><small>GSTIN</small><span>{SITE.gstin}</span></div></div>
       </aside>
       <EnquiryForm />
     </div>
@@ -37,7 +38,7 @@ const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuer
   <section class="section section--flush-top">
     <div class="container">
       <div class="map reveal">
-        <iframe title="Map — Signature Global Solera, Sector 107, Gurugram" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={mapSrc}></iframe>
+        <iframe title="Map — Sangini Trade Center, Saroli, Surat" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={mapSrc}></iframe>
       </div>
     </div>
   </section>

@@ -16,7 +16,7 @@ export function getStaticPaths() {
 }
 
 const { product: p } = Astro.props as { product: Product };
-const waText = `Hello Nityan Polymers, I would like a quote for ${p.name}.`;
+const waText = `Hello Akshita Recycle, I would like a quote for ${p.name}.`;
 const related = PRODUCTS.filter((x) => x.slug !== p.slug).slice(0, 3);
 const index = PRODUCTS.findIndex((x) => x.slug === p.slug) + 1;
 // Gallery photos (slots b, c, d) only show once the file has been added.
@@ -30,13 +30,13 @@ const productSchema = {
   name: p.name,
   description: p.description[0],
   category: `Recycled ${p.polymer} granules`,
-  brand: { '@type': 'Brand', name: 'Nityan Polymers' },
+  brand: { '@type': 'Brand', name: 'Akshita Recycle' },
   image: new URL(`/images/products/${p.slug}.jpg`, Astro.site).toString(),
 };
 ---
 <BaseLayout
   title={`${p.name} — Recycled ${p.polymer}`}
-  description={`${p.description[0]} Request a quote or WhatsApp Nityan Polymers.`}
+  description={`${p.description[0]} Request a quote or WhatsApp Akshita Recycle.`}
   mobileBar
   waText={waText}
   quoteHref={quoteLink(p.slug)}

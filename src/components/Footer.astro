@@ -11,8 +11,8 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="/images/logo/logo-white.png" alt="Nityan Polymers" width="195" height="48" loading="lazy" />
-        <p>Plastic regrinds &amp; recycled granules for Indian manufacturers. Share your application, colour and quantity to discuss your requirement.</p>
+        <img src="/images/logo/logo-white.png" alt="Akshita Recycle" width="200" height="70" loading="lazy" />
+        <p>Recycled plastic granules &amp; regrinds from Surat, India — supplied to manufacturers across India and for export. Share your application, colour and quantity to discuss your requirement.</p>
         <div class="footer__polys">{SITE.polymers.map((p) => <span>{p}</span>)}</div>
       </div>
       <div>
@@ -38,12 +38,13 @@ const year = new Date().getFullYear();
           <li class="fc"><Icon name="phone" /><a href={`tel:${SITE.tel}`}>{SITE.phone}</a></li>
           <li class="fc"><Icon name="wa" /><a href={waLink()} target="_blank" rel="noopener">WhatsApp us</a></li>
           <li class="fc"><Icon name="mail" /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-          <li class="fc"><Icon name="pin" /><address>{SITE.address.map((l) => <>{l}<br /></>)}</address></li>
+          <li class="fc"><Icon name="pin" /><a href={SITE.mapLink} target="_blank" rel="noopener"><address>{SITE.address.map((l) => <>{l}<br /></>)}</address></a></li>
+          <li class="fc"><Icon name="shield" /><span>GSTIN: {SITE.gstin}</span></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>&copy; {year} Nityan Polymers. All rights reserved.</span>
+      <span>&copy; {year} Akshita Recycle · GSTIN {SITE.gstin} · All rights reserved.</span>
       <span>Applications are indicative · Food-contact suitability is not claimed</span>
     </div>
   </div>

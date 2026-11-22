@@ -15,7 +15,7 @@ export function getStaticPaths() {
 }
 
 const { regrind: r } = Astro.props as { regrind: Regrind };
-const waText = `Hello Nityan Polymers, I would like to enquire about ${r.name}.`;
+const waText = `Hello Akshita Recycle, I would like to enquire about ${r.name}.`;
 const others = REGRINDS.filter((x) => x.slug !== r.slug);
 // Gallery photos (slots b, c, d) only show once the file has been added.
 const extras = ['b', 'c', 'd']
@@ -24,7 +24,7 @@ const extras = ['b', 'c', 'd']
 ---
 <BaseLayout
   title={`${r.name} — Plastic Regrind`}
-  description={`${r.description} Request a quote or WhatsApp Nityan Polymers.`}
+  description={`${r.description} Request a quote or WhatsApp Akshita Recycle.`}
   mobileBar
   waText={waText}
   quoteHref={quoteLink(r.slug)}

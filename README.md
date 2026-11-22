@@ -1,4 +1,4 @@
-# Nityan Polymers — website
+# Akshita Recycle — website
 
 Multi-page business site built with **Astro 5 + TypeScript**. Static output (fast, SEO-friendly, host anywhere: Vercel, Netlify, Cloudflare Pages, Hostinger).
 
@@ -33,8 +33,8 @@ npm run preview  # preview the production build
 ## Enquiry form
 
 Set `FORM_ENDPOINT` in `src/scripts/main.js` to a form service (e.g. Formspree) so enquiries go straight to
-sales@nityanpolymers.com with an on-page confirmation. Until then, the form opens the buyer's email app
-pre-filled, and "Send on WhatsApp" sends the same details to +91 91189 85119.
+care.akshitarecycle@gmail.com with an on-page confirmation. Until then, the form opens the buyer's email app
+pre-filled, and "Send on WhatsApp" sends the same details to +91 95371 12360.
 
 ## Before going live (from the brief)
 

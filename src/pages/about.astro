@@ -8,10 +8,10 @@ import { SITE } from '../data/site';
 ---
 <BaseLayout
   title="About Us"
-  description="Nityan Polymers serves India's recycled plastic raw-material market with HDPE, PP, PPCP and LDPE granules and plastic regrinds."
+  description="Akshita Recycle is a GST-registered recycled plastics supplier in Surat, Gujarat, India — HDPE, PP, PPCP and LDPE granules and plastic regrinds for buyers in India and abroad."
 >
   <PageHero
-    title="About Nityan Polymers"
+    title="About Akshita Recycle"
     text="Recycled plastic raw materials, selected around your product, process and budget."
     crumbs={[{ label: 'About Us' }]}
   />
@@ -21,8 +21,7 @@ import { SITE } from '../data/site';
       <div class="reveal">
         <span class="eyebrow">Who we are</span>
         <h2>Helping buyers choose the <span class="hl">right</span> recycled material</h2>
-        <!-- Update "is being established" once the business is operating (see developer brief) -->
-        <p class="lead">Nityan Polymers is being established to serve India’s recycled plastic raw-material market. Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
+        <p class="lead">Akshita Recycle is a GST-registered recycled plastics business based in Surat, Gujarat, serving buyers across India and overseas. Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
         <p>Our range includes HDPE blue drum granules for large and medium blow moulding, HDPE pipe-grade granules (PE 100, PE 80, PE 63), HDPE blow-grade granules, PP injection-grade granules, PPCP black and white granules and LDPE film-grade granules. Buyers can also enquire about plastic regrinds according to their requirements.</p>
         <div class="btn-row" style="margin-top:26px">
           <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
@@ -74,11 +73,11 @@ import { SITE } from '../data/site';
       <div class="team">
         {SITE.team.map((m, i) => (
           <figure class="team__member reveal" data-delay={i}>
-            <Media slot={m.slot} label={`Leadership photo ${i + 1}`} img={m.img} alt={m.name || 'Nityan Polymers leadership'} />
+            <Media slot={m.slot} label={`Leadership photo ${i + 1}`} img={m.img} alt={m.name || 'Akshita Recycle leadership'} />
             {(m.name || m.role) && (
               <figcaption>
                 {m.name && <strong>{m.name}</strong>}
-                {m.role && <span>{m.role}, Nityan Polymers</span>}
+                {m.role && <span>{m.role}, Akshita Recycle</span>}
               </figcaption>
             )}
           </figure>

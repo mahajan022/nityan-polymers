@@ -24,12 +24,15 @@ const orgSchema = {
   logo: new URL('/images/logo/logo-color.png', Astro.site).toString(),
   email: SITE.email,
   telephone: SITE.tel,
+  taxID: SITE.gstin,
+  hasMap: SITE.mapLink,
+  areaServed: 'Worldwide',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '1202, Tower A1, Signature Global Solera, Sector 107',
-    addressLocality: 'Gurugram',
-    addressRegion: 'Haryana',
-    postalCode: '122006',
+    streetAddress: '1168-1172, 1189-1193, 1st Floor, Sangini Trade Center, Saroli',
+    addressLocality: 'Surat',
+    addressRegion: 'Gujarat',
+    postalCode: '395010',
     addressCountry: 'IN',
   },
 };
@@ -43,7 +46,7 @@ const orgSchema = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#fcc00d" />
+    <meta name="theme-color" content="#0b1d63" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
@@ -51,8 +54,9 @@ const orgSchema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/images/logo/mark.svg" />
-    <link rel="alternate icon" type="image/png" href="/images/logo/mark.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -62,7 +66,7 @@ const orgSchema = {
   <body class:list={[mobileBar && 'has-mbar']}>
     <div class="loader" aria-hidden="true">
       <div class="loader__inner">
-        <img src="/images/logo/mark.svg" alt="" width="84" height="55" />
+        <img src="/images/logo/mark.png" alt="" width="84" height="89" />
         <span class="loader__bar"><i></i></span>
       </div>
     </div>

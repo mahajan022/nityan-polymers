@@ -1,10 +1,10 @@
-/* Nityan Polymers — site behaviour */
+/* Akshita Recycle — site behaviour */
 (function () {
   "use strict";
 
   // ---- Business settings -------------------------------------------------
-  var WHATSAPP_NUMBER = "919118985119";
-  var BUSINESS_EMAIL = "sales@nityanpolymers.com";
+  var WHATSAPP_NUMBER = "919537112360";
+  var BUSINESS_EMAIL = "care.akshitarecycle@gmail.com";
   // Paste a form-service URL here (e.g. Formspree "https://formspree.io/f/xxxx")
   // to deliver enquiries straight to the inbox. Left empty, the form opens the
   // buyer's email app with the enquiry pre-filled.
@@ -71,7 +71,7 @@
     return "https://wa.me/" + WHATSAPP_NUMBER + (text ? "?text=" + encodeURIComponent(text) : "");
   }
   $$("[data-wa]").forEach(function (a) {
-    var msg = a.getAttribute("data-wa") || "Hello Nityan Polymers, I would like to enquire about your recycled plastic materials.";
+    var msg = a.getAttribute("data-wa") || "Hello Akshita Recycle, I would like to enquire about your recycled plastic materials.";
     a.href = waLink(msg);
     a.target = "_blank";
     a.rel = "noopener";
@@ -222,7 +222,7 @@
   $$("[data-wa-form]").forEach(function (a) {
     a.addEventListener("click", function (e) {
       e.preventDefault();
-      var text = "Hello Nityan Polymers, I would like a quote.\n\n" + (lastSummary || summary(fieldData()));
+      var text = "Hello Akshita Recycle, I would like a quote.\n\n" + (lastSummary || summary(fieldData()));
       window.open(waLink(text), "_blank", "noopener");
     });
   });
