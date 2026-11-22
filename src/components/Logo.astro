@@ -1,0 +1,13 @@
+---
+// Brand lockup: recycle mark + "Akshita Recycle" wordmark + tagline.
+// variant="light" is for dark backgrounds (footer).
+interface Props { variant?: 'dark' | 'light'; class?: string }
+const { variant = 'dark', class: cls } = Astro.props;
+---
+<span class:list={['brand', variant === 'light' && 'brand--light', cls]}>
+  <img class="brand__mark" src="/images/logo/mark.png" alt="" width="393" height="400" />
+  <span class="brand__text">
+    <span class="brand__name">Akshita Recycle</span>
+    <span class="brand__tag">Polymer Sourcing &amp; Material Solutions</span>
+  </span>
+</span>

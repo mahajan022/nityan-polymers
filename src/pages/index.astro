@@ -109,12 +109,24 @@ const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)]
         <span class="eyebrow">How to enquire</span>
         <h2>From requirement to quotation in four simple steps</h2>
       </div>
-      <div class="grid grid--4 steps">
-        <div class="step reveal"><h3>Share your requirement</h3><p>Polymer, colour, quantity in kg or MT, application and delivery city / PIN code.</p></div>
-        <div class="step reveal" data-delay="1"><h3>Material review</h3><p>We check available material against your product and processing needs.</p></div>
-        <div class="step reveal" data-delay="2"><h3>Offer &amp; specifications</h3><p>Receive price, specifications, packaging and sample terms with the offer.</p></div>
-        <div class="step reveal" data-delay="3"><h3>Trial &amp; supply</h3><p>Confirm suitability through a production trial, then plan your order.</p></div>
-      </div>
+      <ol class="process">
+        <li class="process__step reveal">
+          <span class="process__num" aria-hidden="true">1</span>
+          <div class="process__body"><span class="process__label">Step 1</span><h3>Share your requirement</h3><p>Polymer, colour, quantity in kg or MT, application and delivery city / PIN code.</p></div>
+        </li>
+        <li class="process__step reveal" data-delay="1">
+          <span class="process__num" aria-hidden="true">2</span>
+          <div class="process__body"><span class="process__label">Step 2</span><h3>Material review</h3><p>We check available material against your product and processing needs.</p></div>
+        </li>
+        <li class="process__step reveal" data-delay="2">
+          <span class="process__num" aria-hidden="true">3</span>
+          <div class="process__body"><span class="process__label">Step 3</span><h3>Offer &amp; specifications</h3><p>Receive price, specifications, packaging and sample terms with the offer.</p></div>
+        </li>
+        <li class="process__step reveal" data-delay="3">
+          <span class="process__num" aria-hidden="true">4</span>
+          <div class="process__body"><span class="process__label">Step 4</span><h3>Trial &amp; supply</h3><p>Confirm suitability through a production trial, then plan your order.</p></div>
+        </li>
+      </ol>
     </div>
   </section>
 

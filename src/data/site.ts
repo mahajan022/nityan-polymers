@@ -2,11 +2,6 @@
 export const SITE = {
   name: 'Akshita Recycle',
   tagline: 'Plastic Regrinds & Recycled Granules',
-  // Leadership shown on the About page (photo slots L1, L2). Leave name/role blank until confirmed.
-  team: [
-    { slot: 'L1', name: 'Neetu Tripathi', role: 'Managing Director', img: '/images/site/team-1.jpg' },
-    { slot: 'L2', name: 'Shweta Tripathi', role: 'Director Operations', img: '/images/site/team-2.jpg' },
-  ],
   phone: '+91 95371 12360',
   tel: '+919537112360',
   whatsapp: '919537112360',

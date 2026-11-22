@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 import { SITE, NAV, waLink } from '../data/site';
 import { PRODUCTS, colourNames } from '../data/products';
 
@@ -20,7 +21,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 <header class="header">
   <div class="container">
     <a class="logo" href="/" aria-label="Akshita Recycle — Home">
-      <img src="/images/logo/logo-color.png" alt="Akshita Recycle" width="160" height="56" />
+      <Logo />
     </a>
     <nav class="nav" aria-label="Main">
       {NAV.map((item) =>
@@ -59,7 +60,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   <div class="drawer__scrim" data-nav-close></div>
   <div class="drawer__panel" role="dialog" aria-label="Menu">
     <div class="drawer__top">
-      <img src="/images/logo/logo-color.png" alt="Akshita Recycle" width="160" height="56" />
+      <Logo />
       <button class="drawer__close" type="button" aria-label="Close menu" data-nav-close>&times;</button>
     </div>
     {NAV.map((item) => (

@@ -4,25 +4,31 @@ import Icon from '../components/Icon.astro';
 import Media from '../components/Media.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { SITE } from '../data/site';
 ---
 <BaseLayout
   title="About Us"
-  description="Akshita Recycle is a GST-registered recycled plastics supplier in Surat, Gujarat, India — HDPE, PP, PPCP and LDPE granules and plastic regrinds for buyers in India and abroad."
+  description="Akshita Recycle is a polymer sourcing and material solutions company in Surat, India — sourcing, procurement and supply of recycled HDPE, PP, PPCP and LDPE for domestic and international buyers."
 >
   <PageHero
-    title="About Akshita Recycle"
-    text="Recycled plastic raw materials, selected around your product, process and budget."
+    title="Connecting Polymer Markets. Enabling Circular Solutions."
+    text="A reliable sourcing partner for recycled plastics and polymer materials across domestic and international markets."
     crumbs={[{ label: 'About Us' }]}
-  />
+  >
+    <ul class="hero-pills">
+      <li>Domestic Sourcing</li>
+      <li class="is-blue">Global Sourcing</li>
+      <li>Recycled Materials</li>
+    </ul>
+  </PageHero>
 
   <section class="section">
     <div class="container split split--wide-text">
       <div class="reveal">
-        <span class="eyebrow">Who we are</span>
-        <h2>Helping buyers choose the <span class="hl">right</span> recycled material</h2>
-        <p class="lead">Akshita Recycle is a GST-registered recycled plastics business based in Surat, Gujarat, serving buyers across India and overseas. Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
-        <p>Our range includes HDPE blue drum granules for large and medium blow moulding, HDPE pipe-grade granules (PE 100, PE 80, PE 63), HDPE blow-grade granules, PP injection-grade granules, PPCP black and white granules and LDPE film-grade granules. Buyers can also enquire about plastic regrinds according to their requirements.</p>
+        <span class="eyebrow">Corporate introduction</span>
+        <h2>A polymer <span class="hl">sourcing</span> &amp; material solutions company</h2>
+        <p class="lead">Akshita Recycle is a polymer sourcing and material solutions company focused on sourcing, procurement and supply of recycled plastic materials.</p>
+        <p>We connect suppliers, recyclers, processors and industrial buyers through reliable sourcing networks, quality-conscious material selection and professional trade coordination.</p>
+        <p>Our business covers multiple polymer categories, serving domestic and international markets with a commitment to transparency, consistency and long-term partnerships.</p>
         <div class="btn-row" style="margin-top:26px">
           <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
           <a class="btn btn--primary" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
@@ -60,32 +66,6 @@ import { SITE } from '../data/site';
         <div class="feature reveal"><div class="feature__ico"><Icon name="target" /></div><h3>Start with the application</h3><p>Tell us what you're making, how you process it and what matters most — flow, strength, finish or colour.</p></div>
         <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="tag" /></div><h3>Prices on enquiry</h3><p>Quotations reflect the material and order requirements, so every buyer gets a price that fits their order.</p></div>
         <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="recycle" /></div><h3>Responsible claims</h3><p>Applications are indicative and confirmed through technical review and trial. Food-contact suitability is not claimed.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--soft">
-    <div class="container founder">
-      <div class="reveal">
-        <span class="eyebrow">Leadership</span>
-        <blockquote>Our focus is simple — help every buyer select the right recycled material for their product, processing needs and budget.</blockquote>
-      </div>
-      <div class="team">
-        {SITE.team.map((m, i) => (
-          <figure class="team__member reveal" data-delay={i}>
-            <Media slot={m.slot} label={`Leadership photo ${i + 1}`} img={m.img} alt={m.name || 'Akshita Recycle leadership'} />
-            {(m.name || m.role) && (
-              <figcaption>
-                {m.name && <strong>{m.name}</strong>}
-                {m.role && <span>{m.role}, Akshita Recycle</span>}
-              </figcaption>
-            )}
-          </figure>
-        ))}
-      </div>
-      <div class="btn-row reveal">
-        <a class="btn btn--outline btn--sm" href={`tel:${SITE.tel}`}><Icon name="phone" /> {SITE.phone}</a>
-        <a class="btn btn--outline btn--sm" href={`mailto:${SITE.email}`}><Icon name="mail" /> Email us</a>
       </div>
     </div>
   </section>

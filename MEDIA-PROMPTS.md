@@ -11,8 +11,6 @@ Add this style line to the end of every prompt:
 | 4 | H3 | images/site/home-about-2.jpg | 1200×1200 | A hand in a work glove holding a handful of natural recycled HDPE granules over an open sack, close-up |
 | 5 | A1 | images/site/about-main.jpg | 2000×1600 (5:4) | Clear sample bags of recycled plastic granules in different colours (natural, white, black, blue) laid out on a wooden table with a notebook and pen, as in a buyer meeting, top-down at an angle |
 | 6 | A2 | images/site/about-2.jpg | 1200×1200 | Small glass sample jars filled with different recycled plastic granules, lined up on a white shelf |
-| 7 | L1 | images/site/team-1.jpg | 1200×1500 (4:5) | **Use the real photo supplied by the client.** Half-body, plain light background, natural light |
-| 8 | L2 | images/site/team-2.jpg | 1200×1500 (4:5) | **Use the real photo supplied by the client.** Match the framing and background of L1 |
 | 9 | Share image | images/site/og-image.jpg | 1200×630 | Wide view of four neat piles of recycled plastic granules in a row (natural, white, black, blue) on a light surface, empty space on the left for a logo |
 | 10 | P1 | images/products/hdpe-blue-drum-granules.jpg | 1600×1600 | A heap of blue recycled HDPE granules in the foreground, blurred blue 200-litre plastic drums in the background |
 | 11 | P1b | images/products/hdpe-blue-drum-granules-2.jpg | 1200×1200 | Extreme macro of blue recycled HDPE granules, showing their round shape and slightly glossy surface |

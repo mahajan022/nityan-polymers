@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 import { SITE, waLink } from '../data/site';
 import { PRODUCTS } from '../data/products';
 
@@ -11,7 +12,7 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="/images/logo/logo-white.png" alt="Akshita Recycle" width="200" height="70" loading="lazy" />
+        <Logo variant="light" />
         <p>Recycled plastic granules &amp; regrinds from Surat, India — supplied to manufacturers across India and for export. Share your application, colour and quantity to discuss your requirement.</p>
         <div class="footer__polys">{SITE.polymers.map((p) => <span>{p}</span>)}</div>
       </div>

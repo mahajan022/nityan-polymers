@@ -15,8 +15,6 @@ Recommended: JPG, ~1600px wide, under 300 KB (compress with squoosh.app). Videos
 | H3 | Home "About" section, small inset | `public/images/site/home-about-2.jpg` | square |
 | A1 | About page, large | `public/images/site/about-main.jpg` | 5:4 |
 | A2 | About page, small inset | `public/images/site/about-2.jpg` | square |
-| L1 | About page, leadership photo 1 | `public/images/site/team-1.jpg` | portrait 4:5 |
-| L2 | About page, leadership photo 2 | `public/images/site/team-2.jpg` | portrait 4:5 |
 | — | Social share preview | `public/images/site/og-image.jpg` | 1200×630 |
 
 ## Granules — `public/images/products/`
