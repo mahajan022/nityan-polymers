@@ -12,9 +12,9 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
-        <Logo variant="light" />
+        <Logo />
         <p>Recycled plastic granules &amp; regrinds from Surat, India — supplied to manufacturers across India and for export. Share your application, colour and quantity to discuss your requirement.</p>
-        <div class="footer__polys">{SITE.polymers.map((p) => <span>{p}</span>)}</div>
+        <a class="btn btn--primary btn--sm" href="/contact#enquiry">Get in touch <Icon name="chevr" /></a>
       </div>
       <div>
         <h4>Company</h4>
@@ -49,7 +49,6 @@ const year = new Date().getFullYear();
       <span>Applications are indicative · Food-contact suitability is not claimed</span>
     </div>
   </div>
-  <div class="footer__stripe"></div>
 </footer>
 
 {mobileBar && (

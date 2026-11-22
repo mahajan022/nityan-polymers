@@ -7,49 +7,58 @@ import CtaBand from '../components/CtaBand.astro';
 import { waLink, quoteLink } from '../data/site';
 import { PRODUCTS, REGRINDS } from '../data/products';
 
-const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)];
 ---
 <BaseLayout
   title="Recycled Plastic Granules & Regrinds Supplier, Surat, India"
   description="Akshita Recycle, Surat (Gujarat, India) supplies recycled HDPE, PP, PPCP and LDPE granules and plastic regrinds to manufacturers in India and worldwide. Request a quote or WhatsApp us."
 >
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="reveal">
-        <span class="hero__tag"><b>AKSHITA</b> Plastic Regrinds &amp; Recycled Granules</span>
-        <h1>Recycled Plastic <span class="hl">Granules</span> &amp; <span class="hl">Regrinds</span> for Manufacturers in India &amp; Worldwide</h1>
-        <p class="lead">Akshita Recycle, based in Surat, Gujarat, supplies recycled HDPE, PP, PPCP and LDPE materials to manufacturers across India and export buyers. Explore our product range and share your application, colour, quantity and delivery location to discuss your requirement.</p>
-        <div class="btn-row">
-          <a class="btn btn--dark" href="/products">View Products <Icon name="arrow" /></a>
-          <a class="btn btn--primary" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
-          <a class="btn btn--wa" href={waLink('Hello Akshita Recycle, I would like to enquire about your recycled plastic materials.')} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp Us</a>
-        </div>
-        <div class="hero__polymers"><span>HDPE</span><span>PP</span><span>PPCP</span><span>LDPE</span></div>
-      </div>
-      <div class="hero__visual reveal" data-delay="2">
-        <div class="hero__chip"><b>Material range</b>6 granule products + regrinds</div>
-        <Media slot="H1" label="Hero video (MP4) or photo — granules / material close-up" img="/images/site/hero.jpg" video="/videos/hero.mp4" alt="Recycled plastic granules" eager />
-        <div class="hero__badge">
-          <span class="ico"><img src="/images/logo/mark.png" alt="" width="30" height="32" /></span>
-          <span><strong>Prices on enquiry</strong><small>Quotes matched to your material &amp; order</small></span>
-        </div>
+  <section class="vhero">
+    <img class="vhero__bg" src="/images/site/hero-pour.jpg" alt="" width="1600" height="851" fetchpriority="high" />
+    <div class="container vhero__inner">
+      <h1>Recycled Plastic Granules &amp; Regrinds for Manufacturers Worldwide</h1>
+      <p class="vhero__lead">We connect recyclers, processors and industrial buyers, sourcing and supplying recycled HDPE, PP, PPCP and LDPE that matches your product, process and budget.</p>
+      <p class="vhero__sub">Based in Surat, Gujarat, Akshita Recycle supplies manufacturers across India and export buyers, with specifications and samples shared with every offer.</p>
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary" href="/contact#enquiry">Request a Quote <Icon name="chevr" /></a>
+        <a class="btn btn--light" href="/products">View products <Icon name="chevr" /></a>
       </div>
     </div>
   </section>
 
-  <div class="strip" aria-hidden="true">
-    <div class="strip__track">{[...marquee, ...marquee].map((m) => <span>{m}</span>)}</div>
-  </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <h2 class="title-accent">What we do</h2>
+        <p class="lead">A polymer sourcing and material solutions partner, from finding the right material to delivering it.</p>
+      </div>
+      <div class="vcards">
+        <div class="vcard reveal"><span class="vcard__ico"><Icon name="search" /></span><h3>We source</h3><p>We source recycled plastic from trusted recyclers and processors, selecting material by grade, colour and application.</p></div>
+        <div class="vcard reveal" data-delay="1"><span class="vcard__ico"><Icon name="network" /></span><h3>We connect</h3><p>Our network links suppliers, recyclers, processors and industrial buyers across India and overseas.</p></div>
+        <div class="vcard reveal" data-delay="2"><span class="vcard__ico"><Icon name="truck" /></span><h3>We supply</h3><p>Recycled HDPE, PP, PPCP and LDPE granules and regrinds, delivered to manufacturers in India and for export.</p></div>
+        <div class="vcard reveal" data-delay="3"><span class="vcard__ico"><Icon name="badge" /></span><h3>We verify</h3><p>Specifications and samples come with every offer, so suitability is confirmed by trial before you commit.</p></div>
+      </div>
+      <div class="center-cta reveal"><a class="btn btn--primary" href="/contact">Get in touch <Icon name="chevr" /></a></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container band__inner reveal">
+      <h2>Recycled material, matched to your product</h2>
+      <p>Share the polymer, colour, quantity and delivery location. We come back with available material, specifications and price.</p>
+      <a class="btn btn--dark" href="/contact#enquiry">Get started <Icon name="chevr" /></a>
+      <ul class="band__points">
+        <li>GST-registered business</li>
+        <li>Domestic &amp; export supply</li>
+        <li>Prices on enquiry</li>
+      </ul>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
-      <div class="cat-head reveal">
-        <div class="section-head">
-          <span class="eyebrow">Our product range</span>
-          <h2>Recycled granules for extrusion, blow &amp; injection moulding</h2>
-          <p class="lead">Choose by polymer, process and colour. Specifications, sample arrangements and availability are confirmed with each offer.</p>
-        </div>
-        <a class="btn btn--outline" href="/products">All products <Icon name="arrow" /></a>
+      <div class="section-head section-head--center reveal">
+        <h2 class="title-accent">Our product range</h2>
+        <p class="lead">Recycled granules for extrusion, blow and injection moulding. Choose by polymer, process and colour. Specifications, samples and availability are confirmed with each offer.</p>
       </div>
       <div class="grid grid--3">
         {PRODUCTS.map((p, i) => <ProductCard product={p} delay={i % 3} />)}
@@ -62,10 +71,30 @@ const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)]
           </div>
         </a>
       </div>
+      <div class="center-cta reveal"><a class="btn btn--primary" href="/products">View all products <Icon name="chevr" /></a></div>
     </div>
   </section>
 
-  <section class="section band-yellow">
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <h2 class="title-accent">Akshita Recycle: material you can rely on</h2>
+      </div>
+      <div class="values">
+        <div class="values__media reveal">
+          <Media slot="H2" label="About photo — material / warehouse / team" img="/images/site/home-about.jpg" />
+        </div>
+        <ol class="values__list">
+          <li class="reveal"><span class="values__num">1</span><div><h3>Application-led selection</h3><p>We match material to your product, processing needs and budget, not the other way around. Tell us what you make and how you process it.</p></div></li>
+          <li class="reveal" data-delay="1"><span class="values__num">2</span><div><h3>Clear colour options</h3><p>Natural, white, black and blue options across grades, confirmed with each offer so you know exactly what arrives.</p></div></li>
+          <li class="reveal" data-delay="2"><span class="values__num">3</span><div><h3>Trial before you commit</h3><p>Specifications and sample arrangements are shared with the offer so you can run a production trial first.</p></div></li>
+          <li class="reveal" data-delay="3"><span class="values__num">4</span><div><h3>Honest material information</h3><p>No inflated claims: no unverified PE100 or food-contact grades. Suitability is confirmed by trial.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
     <div class="container split split--wide-text">
       <div class="reveal">
         <span class="eyebrow">Plastic regrinds</span>
@@ -91,21 +120,6 @@ const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)]
   <section class="section">
     <div class="container">
       <div class="section-head section-head--center reveal">
-        <span class="eyebrow">Why buyers talk to us</span>
-        <h2>Material selection that starts with <span class="hl">your product</span></h2>
-      </div>
-      <div class="grid grid--4">
-        <div class="feature reveal"><div class="feature__ico"><Icon name="target" /></div><h3>Application-led</h3><p>We match material to your product, processing needs and budget — not the other way around.</p></div>
-        <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="palette" /></div><h3>Clear colour options</h3><p>Natural, white, black and blue options across grades, confirmed with each offer.</p></div>
-        <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="flask" /></div><h3>Trial before you commit</h3><p>Specifications and sample arrangements are shared with the offer so you can run a production trial.</p></div>
-        <div class="feature reveal" data-delay="3"><div class="feature__ico"><Icon name="shield" /></div><h3>Honest material info</h3><p>No inflated claims — no unverified PE100 or food-contact grades. Suitability is confirmed by trial.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--ink">
-    <div class="container">
-      <div class="section-head reveal">
         <span class="eyebrow">How to enquire</span>
         <h2>From requirement to quotation in four simple steps</h2>
       </div>
@@ -130,24 +144,15 @@ const marquee = [...PRODUCTS.map((p) => p.name), ...REGRINDS.map((r) => r.name)]
     </div>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <div class="media-stack reveal">
-        <Media slot="H2" label="About photo — material / warehouse / team" img="/images/site/home-about.jpg" />
-        <Media slot="H3" label="Close-up of granules" img="/images/site/home-about-2.jpg" class="media--inset" />
-      </div>
-      <div class="reveal" data-delay="1">
-        <span class="eyebrow">About Akshita Recycle</span>
-        <h2>Recycled plastic raw materials from Surat, India</h2>
-        <p class="lead">Our focus is on helping buyers select materials according to their product, processing needs and budget.</p>
-        <ul class="checklist">
-          <li>HDPE blue drum, pipe-grade and blow-grade granules</li>
-          <li>PP injection-grade and PPCP black &amp; white granules</li>
-          <li>LDPE film-grade granules</li>
-          <li>HDPE, PPCP and ABS plastic regrinds on enquiry</li>
-        </ul>
-        <a class="btn btn--outline" href="/about">More about us <Icon name="arrow" /></a>
-      </div>
+  <section class="split-panel">
+    <div class="split-panel__media">
+      <Media slot="H3" label="Close-up of granules" img="/images/site/home-about-2.jpg" />
+    </div>
+    <div class="split-panel__body reveal">
+      <h2>Built on sourcing.<br />Driven by partnerships.</h2>
+      <p>Akshita Recycle is a polymer sourcing and material solutions company focused on sourcing, procurement and supply of recycled plastic materials.</p>
+      <p>Our business covers multiple polymer categories, serving domestic and international markets with a commitment to transparency, consistency and long-term partnerships.</p>
+      <a class="btn btn--light" href="/about">About us <Icon name="chevr" /></a>
     </div>
   </section>
 

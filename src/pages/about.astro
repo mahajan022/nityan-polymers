@@ -43,9 +43,8 @@ import CtaBand from '../components/CtaBand.astro';
 
   <section class="section section--soft">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Our materials</span>
-        <h2>Four polymers. One clear focus.</h2>
+      <div class="section-head section-head--center reveal">
+        <h2 class="title-accent">Four polymers. One clear focus.</h2>
       </div>
       <div class="stat-row reveal">
         <div class="stat"><strong>HDPE</strong><span>Blue drum, pipe &amp; blow-grade granules, HDPE regrinds</span></div>
@@ -56,16 +55,27 @@ import CtaBand from '../components/CtaBand.astro';
     </div>
   </section>
 
+  <section class="split-panel">
+    <div class="split-panel__media">
+      <Media slot="A3" label="Material / warehouse photo" img="/images/site/home-about.jpg" />
+    </div>
+    <div class="split-panel__body reveal">
+      <h2>Transparency. Consistency.<br />Long-term partnerships.</h2>
+      <p>We connect suppliers, recyclers, processors and industrial buyers through reliable sourcing networks, quality-conscious material selection and professional trade coordination.</p>
+      <p>Whether you buy in kilograms or full loads, for India or export, we keep material details, specifications and pricing clear from the first enquiry.</p>
+      <a class="btn btn--light" href="/contact#enquiry">Talk to us <Icon name="chevr" /></a>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-head section-head--center reveal">
-        <span class="eyebrow">Our approach</span>
-        <h2>How we work with buyers</h2>
+        <h2 class="title-accent">How we work with buyers</h2>
       </div>
       <div class="grid grid--3">
-        <div class="feature reveal"><div class="feature__ico"><Icon name="target" /></div><h3>Start with the application</h3><p>Tell us what you're making, how you process it and what matters most — flow, strength, finish or colour.</p></div>
-        <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="tag" /></div><h3>Prices on enquiry</h3><p>Quotations reflect the material and order requirements, so every buyer gets a price that fits their order.</p></div>
-        <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="recycle" /></div><h3>Responsible claims</h3><p>Applications are indicative and confirmed through technical review and trial. Food-contact suitability is not claimed.</p></div>
+        <div class="feature reveal"><div class="feature__ico"><Icon name="target" mono /></div><h3>Start with the application</h3><p>Tell us what you're making, how you process it and what matters most — flow, strength, finish or colour.</p></div>
+        <div class="feature reveal" data-delay="1"><div class="feature__ico"><Icon name="tag" mono /></div><h3>Prices on enquiry</h3><p>Quotations reflect the material and order requirements, so every buyer gets a price that fits their order.</p></div>
+        <div class="feature reveal" data-delay="2"><div class="feature__ico"><Icon name="recycle" mono /></div><h3>Responsible claims</h3><p>Applications are indicative and confirmed through technical review and trial. Food-contact suitability is not claimed.</p></div>
       </div>
     </div>
   </section>

@@ -8,16 +8,6 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 <a class="sr-only" href="#main">Skip to content</a>
-<div class="topbar">
-  <div class="container">
-    <div class="topbar__links">
-      <a href={`tel:${SITE.tel}`}><Icon name="phone" /> {SITE.phone}</a>
-      <a class="hide-sm" href={`mailto:${SITE.email}`}><Icon name="mail" /> {SITE.email}</a>
-    </div>
-    <div class="topbar__note">Recycled <b>HDPE</b> · <b>PP</b> · <b>PPCP</b> · <b>LDPE</b> — prices on enquiry</div>
-  </div>
-</div>
-
 <header class="header">
   <div class="container">
     <a class="logo" href="/" aria-label="Akshita Recycle — Home">
@@ -49,8 +39,8 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
       )}
     </nav>
     <div class="header__cta">
-      <a class="btn btn--wa btn--sm" href={waLink()} target="_blank" rel="noopener"><Icon name="wa" /> WhatsApp</a>
-      <a class="btn btn--primary btn--sm" href="/contact#enquiry"><Icon name="quote" /> Request a Quote</a>
+      <a class="header__phone" href={`tel:${SITE.tel}`}><Icon name="phone" mono /> {SITE.phone}</a>
+      <a class="btn btn--primary btn--sm" href="/contact#enquiry">Request a Quote <Icon name="chevr" /></a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" data-nav-open><span></span></button>
     </div>
   </div>
