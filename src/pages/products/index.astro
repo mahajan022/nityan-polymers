@@ -54,10 +54,10 @@ import { PRODUCTS, REGRINDS, colourNames } from '../../data/products';
             {PRODUCTS.map((p) => (
               <tr>
                 <td><a href={`/products/${p.slug}`}>{p.name}</a></td>
-                <td>{p.polymer}</td>
-                <td>{p.process}</td>
-                <td>{colourNames(p)}</td>
-                <td>{p.applications.join(', ')}</td>
+                <td data-label="Polymer">{p.polymer}</td>
+                <td data-label="Process">{p.process}</td>
+                <td data-label="Colours">{colourNames(p)}</td>
+                <td data-label="Applications">{p.applications.join(', ')}</td>
               </tr>
             ))}
           </tbody>

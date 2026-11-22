@@ -517,7 +517,8 @@ p { margin: 0 0 1em; }
 .info-row a.info-link { display: inline-block; margin-top: 6px; font-size: .88rem; font-weight: 600; color: var(--green-600); }
 .info-row a.info-link:hover { color: var(--ink); }
 .person { display: flex; align-items: center; gap: 14px; padding: 16px; margin-bottom: 8px; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
-.person .avatar { width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--grad); color: var(--ink); font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; }
+.person .avatar { width: 56px; height: 56px; border-radius: 16px; flex: none; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); }
+.person .avatar img { width: 38px; height: auto; }
 .person strong { display: block; color: var(--ink); font-family: var(--font-head); font-size: 1.1rem; }
 .person span { color: var(--green-600); font-size: .9rem; }
 
@@ -717,7 +718,7 @@ p { margin: 0 0 1em; }
 .pcard--wide { grid-column: span 1; }
 .process-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); font-size: .96rem; }
 .process-table th, .process-table td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.process-table th { background: var(--grad-ink); color: #fff; font-family: var(--font-head); font-weight: 600; font-size: .9rem; letter-spacing: .02em; }
+.process-table th { background: var(--bg-soft); color: var(--ink); font-family: var(--font-head); font-weight: 600; font-size: .9rem; letter-spacing: .02em; }
 .process-table td:first-child a { font-family: var(--font-head); font-weight: 600; color: var(--ink); }
 .process-table td:first-child a:hover { text-decoration: underline; text-decoration-color: var(--green); text-decoration-thickness: 3px; }
 .process-table tr:last-child td { border-bottom: 0; }
@@ -794,4 +795,47 @@ p { margin: 0 0 1em; }
   .vhero .btn-row .btn { flex: 1 1 100%; }
   .vcard { border-radius: 22px; }
   .cta { border-radius: 24px; }
+}
+
+/* ---------- Responsive refinements ---------- */
+.nav__link { white-space: nowrap; }
+@media (max-width: 1279px) {
+  .header__phone { display: none; }
+  .nav__link { padding-inline: 11px; }
+}
+@media (max-width: 640px) {
+  /* Product comparison table becomes stacked cards */
+  .table-wrap { overflow: visible; }
+  .process-table { min-width: 0; border: 0; background: none; border-radius: 0; }
+  .process-table thead { display: none; }
+  .process-table, .process-table tbody, .process-table tr, .process-table td { display: block; width: 100%; }
+  .process-table tr { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 8px 18px; margin-bottom: 14px; }
+  .process-table td { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .process-table td:first-child { display: block; font-size: 1.05rem; padding-top: 12px; }
+  .process-table tr td:last-child { border-bottom: 0; }
+  .process-table td[data-label]::before { content: attr(data-label); font-family: var(--font-head); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+  .process-table tr:last-child td { border-bottom: 1px solid var(--line); }
+  .process-table tr:last-child td:last-child { border-bottom: 0; }
+  .section-head { margin-bottom: 32px; }
+  .vcard { padding: 30px 22px; }
+  .split-panel__body { padding: 44px 22px; }
+  .cta { padding: 44px 22px; }
+  .band__points { flex-direction: column; align-items: center; gap: 8px; }
+}
+@media (max-width: 380px) {
+  .header .brand__mark { height: 36px; }
+  .header .brand { gap: 7px; }
+  .header .brand__name { font-size: .95rem; }
+  .header .brand__tag { font-size: .42rem; letter-spacing: .06em; }
+  .drawer__top .brand__tag { display: none; }
+  .footer .brand__mark { height: 48px; }
+  .footer .brand__name { font-size: 1.1rem; }
+  .footer .brand__tag { font-size: .5rem; letter-spacing: .08em; }
+  .btn { padding: 13px 20px; }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  /* Tablet: contact details in two columns instead of one long card */
+  .info-card { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+  .info-card .person { grid-column: 1 / -1; }
+  .info-card .info-row:last-of-type { border-bottom: 1px solid var(--line); }
 }
