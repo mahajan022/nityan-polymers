@@ -19,6 +19,35 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // ---- Home hero carousel (crossfading photos) -------------------------
+  var heroSlides = $$("[data-hero-carousel] .vhero__bg");
+  var heroDots = $$("[data-hero-dot]");
+  if (heroSlides.length > 1) {
+    var heroIdx = 0, heroTimer = null;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var showSlide = function (n) {
+      heroIdx = (n + heroSlides.length) % heroSlides.length;
+      var next = heroSlides[(heroIdx + 1) % heroSlides.length];
+      if (next.loading === "lazy") next.loading = "eager"; // preload the following photo
+      heroSlides.forEach(function (img, i) { img.classList.toggle("is-active", i === heroIdx); });
+      heroDots.forEach(function (d, i) { d.classList.toggle("is-active", i === heroIdx); });
+    };
+    var startHero = function () {
+      if (reduceMotion) return;
+      clearInterval(heroTimer);
+      heroTimer = setInterval(function () { if (!document.hidden) showSlide(heroIdx + 1); }, 5500);
+    };
+    heroDots.forEach(function (d, i) {
+      d.addEventListener("click", function () { showSlide(i); startHero(); });
+    });
+    // Fetch every photo once the page has loaded, so dot clicks never show a blank frame.
+    window.addEventListener("load", function () {
+      heroSlides.forEach(function (img) { img.loading = "eager"; });
+    });
+    showSlide(0);
+    startHero();
+  }
+
   // ---- Page loader on internal navigation -------------------------------
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a[href]");

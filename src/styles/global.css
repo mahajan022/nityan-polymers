@@ -742,7 +742,13 @@ p { margin: 0 0 1em; }
 .center-cta { display: flex; justify-content: center; margin-top: clamp(32px, 4vw, 48px); }
 
 .vhero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: min(86vh, 760px); color: #fff; text-align: center; }
-.vhero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.vhero__slides { position: absolute; inset: 0; z-index: -2; }
+.vhero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity 1.2s var(--ease), transform 7s linear; }
+.vhero__bg.is-active { opacity: 1; transform: scale(1); }
+.vhero__dots { position: absolute; left: 0; right: 0; bottom: clamp(20px, 4vw, 36px); display: flex; justify-content: center; gap: 10px; z-index: 2; }
+.vhero__dot { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 999px; background: rgba(255,255,255,.5); cursor: pointer; transition: width .35s var(--ease), background .35s; }
+.vhero__dot:hover { background: rgba(255,255,255,.85); }
+.vhero__dot.is-active { width: 30px; background: #fff; }
 .vhero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6,16,47,.5) 0%, rgba(6,16,47,.62) 100%); }
 .vhero__inner { max-width: 1000px; padding-block: clamp(72px, 10vw, 120px); }
 .vhero h1 { color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 26px; }
