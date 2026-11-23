@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const FOCUS = [
+  { icon: 'ship', title: 'Imports', text: 'Sourcing quality polymers from global markets', img: '/images/global/imports.jpg', alt: 'Container ship at sea' },
+  { icon: 'globe', title: 'Exports', text: 'Connecting Indian materials to international buyers', img: '/images/global/exports.jpg', alt: 'Shipping container being loaded at a port' },
+  { icon: 'boxes', title: 'Sourcing', text: 'Identifying and procuring the right polymer materials', img: '/images/global/sourcing.jpg', alt: 'Blue, white and green polymer granules' },
+  { icon: 'box', title: 'Distribution', text: 'Efficient and reliable material supply solutions', img: '/images/global/distribution.jpg', alt: 'Warehouse with bagged material on racks' },
+];
+
+const WHY = [
+  { icon: 'handshake', label: 'Trusted Sourcing Partner' },
+  { icon: 'award', label: 'Quality-Focused Materials' },
+  { icon: 'globe', label: 'Global Market Network' },
+  { icon: 'truck', label: 'Reliable Logistics Coordination' },
+  { icon: 'users', label: 'Long-Term Business Partnerships' },
+];
+---
+<BaseLayout
+  title="Global Sourcing"
+  description="Akshita Recycle is a global polymer sourcing company — international imports, exports, sourcing and distribution of recycled plastics and polymer materials."
+>
+  <section class="gs-hero">
+    <div class="gs-hero__media">
+      <img src="/images/global/port.jpg" alt="Container port with cranes and stacked shipping containers" loading="eager" decoding="async" />
+    </div>
+    <div class="container gs-hero__inner">
+      <div class="gs-hero__body">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Global Sourcing</span></nav>
+        <span class="gs-tag">Global Polymer Sourcing Company</span>
+        <h1>Connecting Global Markets Through Reliable <span>Polymer Sourcing</span></h1>
+        <p>A trusted partner for international imports, exports, sourcing and distribution of recycled plastics and polymer materials.</p>
+        <ul class="gs-hero__points">
+          <li><Icon name="globe" /> Global<br />Sourcing</li>
+          <li><Icon name="ship" /> Import &amp;<br />Export</li>
+          <li><Icon name="warehouse" /> Distribution<br />Support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gs-focus">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <h2 class="gs-title">Our <span>Sourcing Focus</span></h2>
+        <p class="lead">International imports, exports, sourcing and distribution of polymer materials from reliable and quality-conscious global sources.</p>
+      </div>
+      <div class="gs-cards">
+        {FOCUS.map((f, i) => (
+          <article class="gs-card reveal" data-delay={i % 4}>
+            <img src={f.img} alt={f.alt} loading="lazy" decoding="async" />
+            <div class="gs-card__body">
+              <Icon name={f.icon} />
+              <div>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="gs-banner reveal">
+        <img src="/images/global/recycle-globe.jpg" alt="Globe inside a recycling symbol" loading="lazy" decoding="async" />
+        <div>
+          <h2>Global Polymer Sourcing</h2>
+          <p>We leverage a strong international network to source, consolidate and supply recycled plastics and polymer materials, ensuring quality, consistency and timely delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top gs-why">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <h2 class="gs-title">Why Partner with Us</h2>
+      </div>
+      <ul class="gs-why__list reveal">
+        {WHY.map((w) => (
+          <li><Icon name={w.icon} /><span>{w.label}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Discuss an import, export or sourcing requirement."
+    text="Share the polymer, quantity, origin or destination and timeline. We'll come back with sourcing options, specifications and price."
+    waText="Hi, I'd like to discuss a global polymer sourcing requirement."
+  />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .gs-hero { position: relative; background: var(--grad-ink); color: #dfe6f7; overflow: hidden; }
+  .gs-hero::before { content: ""; position: absolute; inset: 0; background: var(--glow); pointer-events: none; }
+  .gs-hero__inner { position: relative; z-index: 1; min-height: clamp(460px, 42vw, 560px); display: flex; align-items: center; }
+  .gs-hero__body { width: calc(50% - 40px); max-width: 560px; padding-block: clamp(48px, 6vw, 72px); }
+  .gs-hero__media { position: absolute; inset: 0 0 0 auto; width: 50%; }
+  .gs-hero__media::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--grad); clip-path: ellipse(22% 80% at 0% 50%); }
+  .gs-hero__media img { width: 100%; height: 100%; object-fit: cover; clip-path: ellipse(100% 80% at 100% 50%); position: relative; z-index: 2; }
+  .gs-hero .crumbs { margin-bottom: 18px; }
+  .gs-hero .crumbs a, .gs-hero .crumbs span { color: #b8c3e3; }
+  .gs-tag { display: inline-block; padding: 6px 12px; background: var(--lime); color: var(--ink-3); font-family: var(--font-head); font-weight: 700; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; border-radius: 4px; }
+  .gs-hero h1 { color: #fff; margin: 18px 0 0; font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.12; }
+  .gs-hero h1 span { color: var(--green); display: block; }
+  .gs-hero h1::after { content: ""; display: block; width: 60px; height: 4px; border-radius: 2px; background: var(--green); margin-top: 22px; }
+  .gs-hero p { font-size: 1.1rem; margin: 20px 0 0; max-width: 46ch; }
+  .gs-hero__points { list-style: none; display: flex; flex-wrap: wrap; gap: 0; margin: 30px 0 0; padding: 0; }
+  .gs-hero__points li { display: flex; align-items: center; gap: 12px; padding-right: 26px; margin-right: 26px; border-right: 1px solid rgba(255,255,255,.22); color: #fff; font-family: var(--font-head); font-size: .98rem; line-height: 1.3; }
+  .gs-hero__points li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .gs-hero__points :global(svg) { width: 36px; height: 36px; color: var(--green); flex: none; }
+
+  /* Section titles */
+  .gs-title { display: flex; align-items: center; justify-content: center; gap: 22px; }
+  .gs-title span { color: var(--accent); }
+  .gs-title::before, .gs-title::after { content: ""; width: clamp(28px, 8vw, 100px); height: 2px; background: var(--accent); flex: none; }
+
+  /* Focus cards */
+  .gs-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .gs-card { border-radius: var(--radius); overflow: hidden; background: var(--ink); box-shadow: var(--shadow); transition: transform .3s var(--ease); }
+  .gs-card:hover { transform: translateY(-4px); }
+  .gs-card img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; display: block; }
+  .gs-card__body { display: flex; gap: 14px; padding: 20px 20px 22px; color: #c9d3ee; }
+  .gs-card__body :global(svg) { width: 38px; height: 38px; color: var(--green); flex: none; }
+  .gs-card h3 { color: #fff; margin: 0 0 4px; font-size: 1.15rem; }
+  .gs-card p { margin: 0; font-size: .92rem; line-height: 1.4; }
+
+  /* Banner */
+  .gs-banner { display: flex; align-items: center; gap: clamp(20px, 5vw, 64px); margin-top: clamp(28px, 4vw, 40px); padding: 24px clamp(20px, 6vw, 80px); border-radius: var(--radius); background: var(--grad-soft); }
+  .gs-banner img { width: 130px; height: auto; mix-blend-mode: multiply; flex: none; }
+  .gs-banner > div { border-left: 2px solid var(--accent); padding-left: clamp(18px, 3vw, 36px); }
+  .gs-banner h2 { margin: 0 0 8px; font-size: clamp(1.35rem, 2.4vw, 1.75rem); color: var(--ink); }
+  .gs-banner p { margin: 0; color: var(--text); }
+
+  /* Why partner */
+  .gs-why__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); }
+  .gs-why__list li { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 6px 16px; border-right: 1px solid var(--line); font-family: var(--font-head); font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .gs-why__list li:last-child { border-right: 0; }
+  .gs-why__list :global(svg) { width: 46px; height: 46px; color: var(--accent); }
+
+  @media (max-width: 1080px) {
+    .gs-cards { grid-template-columns: repeat(2, 1fr); }
+    .gs-why__list { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
+    .gs-why__list li:nth-child(3) { border-right: 0; }
+  }
+  @media (max-width: 900px) {
+    .gs-hero__media { position: relative; width: 100%; height: 260px; }
+    .gs-hero__media::before { display: none; }
+    .gs-hero__media img { clip-path: none; }
+    .gs-hero__inner { min-height: 0; }
+    .gs-hero__body { width: auto; }
+  }
+  @media (max-width: 640px) {
+    .gs-cards { grid-template-columns: 1fr; }
+    .gs-banner { flex-direction: column; text-align: center; }
+    .gs-banner > div { border-left: 0; padding-left: 0; }
+    .gs-why__list { grid-template-columns: repeat(2, 1fr); }
+    .gs-why__list li { border-right: 0; }
+    .gs-why__list li:last-child { grid-column: 1 / -1; }
+    .gs-hero__points li { margin-right: 16px; padding-right: 16px; font-size: .9rem; }
+    .gs-hero__points :global(svg) { width: 28px; height: 28px; }
+  }
+</style>

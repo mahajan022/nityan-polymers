@@ -17,6 +17,7 @@ export const NAV = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/products', label: 'Products' },
+  { href: '/global-sourcing', label: 'Global Sourcing' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
