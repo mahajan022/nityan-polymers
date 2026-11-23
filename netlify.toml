@@ -5,15 +5,3 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Old domain → new domain (keeps links and search rankings).
-[[redirects]]
-  from = "https://nityanpolymers.com/*"
-  to = "https://www.akshitarecycle.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.nityanpolymers.com/*"
-  to = "https://www.akshitarecycle.com/:splat"
-  status = 301
-  force = true
